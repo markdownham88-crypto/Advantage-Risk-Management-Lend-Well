@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lending Well — A Field Guide to Valuation, Risk and Culture in Property Lending</title>
+<meta name="description" content="A field guide for property lenders: seven pressure points in valuation review, stress testing, portfolio concentration, workout thresholds and the culture of risk-managed lending.">
+<meta name="author" content="Mark Downham FRICS">
+<meta name="theme-color" content="#131b2a">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lending Well — Property Valuation and the Advantage of Using Risk Management to Lend Well">
+<meta property="og:description" content="A field guide for property lenders: seven pressure points in valuation review, stress testing, portfolio concentration, workout thresholds and the culture of risk-managed lending.">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lending Well — A Field Guide for Property Lenders">
+<meta name="twitter:description" content="A field guide for property lenders: seven pressure points in valuation review, stress testing, portfolio concentration, workout thresholds and the culture of risk-managed lending.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131b2a'/%3E%3Cpath d='M32 10 L52 24 L44 50 L20 50 L12 24 Z' fill='none' stroke='%23d4b06a' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%2355ada2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,300;1,9..144,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#131b2a; --ink2:#1c2639; --ink3:#25314a; --line:#3a4a6e; --line2:#5a6c98;
+  --text:#f8f5ee; --muted:#e0e5ee; --dim:#c4ccdb; --k:1;
+  --brass:#d4b06a; --brass2:#ecd29a; --verd:#55ada2; --verd2:#8ad8cd;
+  --red:#e0735f; --amber:#eab25a; --green:#6cc08a; --violet:#a79ff0;
+  --c-rule:#8ad8cd; --c-boundary:#f0c06e; --c-heur:#c3bcff; --c-conv:#f4998a;
+  --on-accent:#111827;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif; --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --r:14px; --shadow:0 18px 50px -20px rgba(0,0,0,.6);
+}
+body.light{
+  --ink:#f6f2e9; --ink2:#fffdf8; --ink3:#efe8da; --line:#d3c7ad; --line2:#a8987a;
+  --text:#0f1218; --muted:#262d3a; --dim:#3c4453;
+  --brass:#7a5612; --brass2:#6a4a0d; --verd:#1d6a61; --verd2:#17594f;
+  --red:#b23b28; --amber:#a86a00; --green:#2c7a47; --violet:#5446b0;
+  --c-rule:#17594f; --c-boundary:#875400; --c-heur:#4a3ca8; --c-conv:#a53422;
+  --on-accent:#fffdf8; --shadow:0 18px 40px -26px rgba(60,40,10,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--sans);font-size:calc(18px * var(--k));line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .4s,color .4s}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.45;
+  background:radial-gradient(1200px 600px at 85% -10%,rgba(212,176,106,.10),transparent 60%),radial-gradient(900px 500px at -10% 40%,rgba(85,173,162,.07),transparent 60%)}
+body.light::before{opacity:.25}
+p,li{text-wrap:pretty}
+h1,h2,h3{text-wrap:balance}
+p{margin:0 0 1em}
+b,strong{font-weight:600;color:var(--text)}
+a{color:var(--brass2);text-underline-offset:3px}
+section:focus{outline:none}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:6px}
+::selection{background:var(--brass);color:var(--on-accent)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--verd),var(--brass));z-index:60;width:0}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:18px;padding:12px 24px;background:color-mix(in srgb,var(--ink) 92%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--serif);font-weight:600;font-size:calc(19px * var(--k));white-space:nowrap;text-decoration:none;color:var(--text)}
+.brand span{color:var(--brass)}
+.topnav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);padding:0 18px}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{font-size:calc(14.5px * var(--k));font-weight:500;text-decoration:none;color:var(--muted);padding:7px 12px;border-radius:999px;white-space:nowrap}
+.topnav a i{font-style:normal;color:var(--dim);font-family:var(--serif);margin-right:6px}
+.topnav a:hover{color:var(--text);background:var(--ink3)}
+.topnav a.on{color:var(--on-accent);background:var(--brass)}
+.topnav a.on i{color:var(--on-accent)}
+.iconbtn{background:var(--ink2);border:1px solid var(--line2);color:var(--text);border-radius:999px;padding:8px 14px;cursor:pointer;font-family:var(--sans);font-size:calc(14.5px * var(--k));font-weight:500;white-space:nowrap}
+.iconbtn:hover{border-color:var(--brass)}
+.tsize{display:inline-flex;border:1px solid var(--line2);border-radius:999px;overflow:hidden;background:var(--ink2);flex:none}
+.tsize button{background:none;border:0;color:var(--text);font-family:var(--serif);font-weight:600;font-size:calc(14px * var(--k));padding:4px 11px;cursor:pointer;line-height:1.6}
+.tsize button.on{background:var(--brass);color:var(--on-accent)}
+@media(max-width:700px){.tsize{display:none}}
+main{position:relative;z-index:1}
+section{padding:104px 24px;border-bottom:1px solid var(--line)}
+.wrap{max-width:1180px;margin:0 auto}
+.narrow{max-width:72ch}
+/* type */
+.eyebrow{font-family:var(--sans);font-weight:600;font-size:calc(14px * var(--k));letter-spacing:.1em;text-transform:uppercase;color:var(--brass)}
+h1{font-family:var(--serif);font-weight:400;font-size:calc(clamp(42px,6vw,82px) * var(--k));line-height:1.04;margin:20px 0 26px;letter-spacing:-.015em}
+h1 em{font-style:italic;color:var(--brass2);font-weight:400}
+h2{font-family:var(--serif);font-weight:500;font-size:calc(clamp(32px,3.8vw,50px) * var(--k));line-height:1.12;margin:8px 0 24px;letter-spacing:-.01em}
+h3{font-family:var(--serif);font-weight:600;font-size:calc(23px * var(--k));line-height:1.3;margin:0 0 10px}
+h4{font-family:var(--sans);font-weight:600;font-size:calc(15px * var(--k));letter-spacing:.06em;text-transform:uppercase;color:var(--brass);margin:32px 0 12px}
+.lede{font-family:var(--serif);font-size:calc(clamp(20px,2vw,24px) * var(--k));font-weight:400;line-height:1.55;color:var(--text);max-width:68ch}
+.muted{color:var(--muted)}
+.mini{font-size:calc(16.5px * var(--k));line-height:1.65}
+.sec-num{font-family:var(--serif);font-style:italic;color:var(--brass);font-size:calc(22px * var(--k));font-weight:500}
+/* hero */
+.hero{min-height:88vh;display:flex;align-items:center;padding-top:72px;padding-bottom:88px;overflow:hidden;position:relative}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.28}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,color-mix(in srgb,var(--ink) 88%,transparent) 55%,transparent 100%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.byline{margin-top:38px;font-size:calc(16px * var(--k));color:var(--muted);line-height:1.75;border-left:2px solid var(--brass);padding-left:16px}
+.byline b{color:var(--text);font-weight:600;font-size:calc(17px * var(--k))}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--brass);color:var(--brass2);background:transparent;padding:11px 20px;border-radius:999px;font-family:var(--sans);font-size:calc(15.5px * var(--k));font-weight:600;cursor:pointer;text-decoration:none;transition:.2s}
+.btn:hover,.btn.solid{background:var(--brass);color:var(--on-accent)}
+.btn.ghost{border-color:var(--line2);color:var(--text)}
+.btn.ghost:hover{background:var(--ink3);color:var(--text)}
+.aph{font-family:var(--sans);font-weight:600;font-size:calc(15.5px * var(--k));letter-spacing:.06em;line-height:1.55;color:var(--verd2);text-transform:uppercase;border-left:3px solid var(--verd);padding:8px 0 8px 16px;margin:30px 0;max-width:60ch}
+/* layout */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:var(--r);padding:26px;position:relative;transition:.25s}
+.card:hover{border-color:var(--line2)}
+.card p{margin:.5em 0}
+.pill{display:inline-block;font-family:var(--sans);font-weight:600;font-size:calc(13px * var(--k));letter-spacing:.04em;padding:3px 11px;border-radius:999px;border:1.5px solid var(--line2);color:var(--muted);line-height:1.6;white-space:nowrap}
+.pill.rule{border-color:var(--c-rule);color:var(--c-rule)}
+.pill.boundary{border-color:var(--c-boundary);color:var(--c-boundary)}
+.pill.heuristic{border-color:var(--c-heur);color:var(--c-heur)}
+.pill.convene{border-color:var(--c-conv);color:var(--c-conv)}
+ul.tidy{padding-left:0;list-style:none;margin:.4em 0}
+ul.tidy li{padding:7px 0 7px 26px;position:relative}
+ul.tidy li::before{content:"";position:absolute;left:5px;top:17px;width:8px;height:8px;border:1.5px solid var(--brass);transform:rotate(45deg)}
+/* contents */
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:0 28px;margin-top:20px;border-top:1px solid var(--line)}
+.toc a{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:13px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--text);font-size:calc(16.5px * var(--k));line-height:1.4}
+.toc a:hover{background:var(--ink2)}
+.toc a i{font-family:var(--serif);color:var(--brass);font-style:italic;font-size:calc(18px * var(--k))}
+.toc a span small{display:block;color:var(--muted);font-size:calc(14.5px * var(--k));margin-top:2px}
+/* triad */
+.triad{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:34px;background:var(--ink2)}
+.triad div{padding:26px;border-right:1px solid var(--line);font-size:calc(16.5px * var(--k))}
+.triad div:last-child{border-right:0}
+.triad b{font-family:var(--serif);font-size:calc(23px * var(--k));font-weight:600;display:block;margin:10px 0 6px}
+@media(max-width:760px){.triad{grid-template-columns:1fr}.triad div{border-right:0;border-bottom:1px solid var(--line)}}
+/* lifecycle */
+.stages{display:flex;gap:12px;margin:26px 0 20px;flex-wrap:wrap}
+.stage{flex:1;min-width:200px;cursor:pointer;border:1.5px solid var(--line);border-radius:var(--r);padding:16px 20px;background:var(--ink2);transition:.25s;text-align:left;color:var(--text);font:inherit}
+.stage .k{font-size:calc(13.5px * var(--k));font-weight:600;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+.stage .t{font-family:var(--serif);font-size:calc(24px * var(--k));font-weight:500}
+.stage.on{border-color:var(--brass);background:color-mix(in srgb,var(--brass) 12%,var(--ink2))}
+.stage.on .k{color:var(--brass)}
+.heat{display:grid;gap:4px}
+.heatrow{display:grid;grid-template-columns:40px 1fr 150px;gap:16px;align-items:center;cursor:pointer;padding:10px 12px;border-radius:10px}
+.heatrow:hover{background:var(--ink2)}
+.heatrow .n{font-family:var(--serif);font-style:italic;color:var(--brass);font-size:calc(24px * var(--k))}
+.heatrow .ttl{font-size:calc(17px * var(--k));margin-bottom:7px}
+.bar{height:10px;border-radius:99px;background:var(--ink3);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--verd),var(--brass));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.stage-note{margin-top:20px;padding:22px 24px;border-radius:var(--r);background:var(--ink2);border:1px solid var(--line2);font-size:calc(17.5px * var(--k))}
+/* seven */
+.seven{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:18px;margin-top:32px}
+.pp{cursor:pointer;min-height:250px;display:flex;flex-direction:column;overflow:hidden;text-align:left;color:var(--text);font:inherit}
+.pp .big{font-family:var(--serif);font-size:calc(60px * var(--k));line-height:1;font-weight:400;color:var(--brass)}
+.pp h3{margin-top:12px}
+.pp .sum{font-size:calc(16.5px * var(--k));color:var(--muted);line-height:1.55}
+.pp .aphs{margin-top:auto;padding-top:14px;font-size:calc(13.5px * var(--k));font-weight:600;letter-spacing:.05em;color:var(--verd2);text-transform:uppercase;line-height:1.45}
+.pp::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:linear-gradient(90deg,var(--verd),var(--brass));transform:scaleX(var(--done,0));transform-origin:left;transition:.5s}
+.pp:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--brass)}
+.pp .prog{font-size:calc(14px * var(--k));color:var(--dim);margin-top:10px}
+.pp .open{font-size:calc(14.5px * var(--k));font-weight:600;color:var(--brass2);margin-top:6px}
+/* drawer */
+#drawer{position:fixed;inset:0;z-index:80;display:none}
+#drawer.open{display:block}
+#drawer .scrim{position:absolute;inset:0;background:rgba(5,8,14,.72);backdrop-filter:blur(3px)}
+#drawer .panel{position:absolute;top:0;right:0;height:100%;width:min(880px,100%);background:var(--ink);border-left:1px solid var(--line2);overflow-y:auto;padding:30px 40px 70px;animation:slide .35s cubic-bezier(.2,.8,.2,1);font-size:calc(18px * var(--k))}
+#drawer .panel p{max-width:70ch}
+@keyframes slide{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0 18px;border-bottom:1px solid var(--line);padding-bottom:12px;position:sticky;top:-30px;background:var(--ink);z-index:1;padding-top:12px}
+.tab{background:none;border:1.5px solid transparent;color:var(--muted);font-family:var(--sans);font-weight:600;font-size:calc(15px * var(--k));padding:7px 14px;border-radius:999px;cursor:pointer}
+.tab:hover{color:var(--text);background:var(--ink2)}
+.tab.on{border-color:var(--brass);color:var(--brass2);background:var(--ink2)}
+.tabpane{display:none;animation:fade .3s}
+.tabpane.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.chk{display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;cursor:pointer;border:1px solid transparent;font-size:calc(17px * var(--k));line-height:1.5}
+.chk:hover{background:var(--ink2);border-color:var(--line)}
+.chk input{appearance:none;width:20px;height:20px;border:2px solid var(--line2);border-radius:5px;margin-top:2px;flex:none;cursor:pointer;position:relative;background:var(--ink2)}
+.chk input:checked{background:var(--verd);border-color:var(--verd)}
+.chk input:checked::after{content:"";position:absolute;left:5px;top:1px;width:6px;height:11px;border:solid var(--on-accent);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.flag{border-left:4px solid var(--red);padding:11px 16px;margin:10px 0;background:color-mix(in srgb,var(--red) 9%,var(--ink2));border-radius:0 10px 10px 0;font-size:calc(17px * var(--k));line-height:1.5}
+.q{border-left:4px solid var(--violet);padding:12px 16px;margin:10px 0;background:color-mix(in srgb,var(--violet) 9%,var(--ink2));border-radius:0 10px 10px 0;font-family:var(--serif);font-style:italic;font-size:calc(19px * var(--k));line-height:1.5}
+.docase{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:calc(17px * var(--k));line-height:1.55}
+.docase .i{font-family:var(--mono);font-weight:500;color:var(--c-boundary);font-size:calc(16px * var(--k))}
+.docase.else .i{color:var(--c-conv)}
+.dtop{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lifew{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lifew .mini{margin-bottom:6px}
+/* controls */
+.ctrl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:18px 26px;margin:16px 0}
+.ctrl label{font-size:calc(15px * var(--k));font-weight:500;color:var(--text);display:flex;justify-content:space-between;gap:10px;align-items:baseline;line-height:1.35;margin-bottom:6px}
+.ctrl label output{font-family:var(--mono);font-weight:500;color:var(--brass2);white-space:nowrap;font-size:calc(15px * var(--k))}
+input[type=range]{width:100%;accent-color:var(--brass);height:22px;cursor:pointer}
+input[type=number]{width:100%;background:var(--ink);border:1.5px solid var(--line2);color:var(--text);border-radius:9px;padding:10px 12px;font-family:var(--mono);font-size:calc(16px * var(--k))}
+input[type=number]:focus{border-color:var(--brass);outline:none}
+.panelbox{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--ink2)}
+.panelbox h4:first-child{margin-top:0}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+@media(max-width:960px){.split{grid-template-columns:minmax(0,1fr)}}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:18px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:16px 18px 16px 22px;background:var(--ink);position:relative;overflow:hidden}
+.kpi .l{padding-right:72px;font-size:calc(14.5px * var(--k));font-weight:600;color:var(--muted);line-height:1.3}
+.kpi .v{font-family:var(--serif);font-size:calc(32px * var(--k));font-weight:500;line-height:1.2;margin-top:6px;font-variant-numeric:lining-nums tabular-nums}
+.kpi .s{font-size:calc(15px * var(--k));color:var(--muted);line-height:1.4;margin-top:2px}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--rag,var(--line2))}
+.kpi .st{position:absolute;top:14px;right:14px;font-size:calc(12.5px * var(--k));font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:99px;background:var(--rag,var(--line2));color:var(--on-accent);text-transform:uppercase}
+.rag-g{--rag:var(--green)}.rag-a{--rag:var(--amber)}.rag-r{--rag:var(--red)}
+.presets{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 22px}
+.presets button{font-family:var(--sans);font-weight:500;font-size:calc(15px * var(--k));background:var(--ink2);border:1.5px solid var(--line2);color:var(--text);padding:8px 16px;border-radius:999px;cursor:pointer}
+.presets button.on,.presets button:hover{border-color:var(--brass);background:color-mix(in srgb,var(--brass) 14%,var(--ink2))}
+.verdict{margin-top:18px;padding:18px 22px;border-radius:12px;font-size:calc(17.5px * var(--k));line-height:1.55;border:1.5px solid var(--line2);background:var(--ink)}
+.note{font-size:calc(15px * var(--k));color:var(--muted);margin-top:14px;line-height:1.55}
+/* comparables timeline */
+.tl{position:relative;height:48px;margin:26px 10px 6px}
+.tl .axis{position:absolute;left:0;right:0;top:22px;height:2px;background:var(--line2)}
+.tl .seg{position:absolute;top:16px;height:14px;border-radius:7px;transition:.4s}
+.tl .dot{position:absolute;top:10px;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:var(--ink2);border:3px solid var(--brass);transition:.4s;display:grid;place-items:center;font-size:calc(12px * var(--k));font-weight:700;color:var(--text)}
+.tlkey{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+@media(max-width:600px){.tlkey{grid-template-columns:1fr 1fr}}
+.tlkey div{border-top:4px solid var(--c);padding-top:8px;font-size:calc(15px * var(--k));line-height:1.4}
+.tlkey b{display:block;font-size:calc(15.5px * var(--k))}
+.tlkey span{color:var(--muted)}
+/* heatmap */
+.hm{display:grid;grid-template-columns:110px repeat(5,1fr);gap:5px;margin-top:10px;font-size:calc(15px * var(--k))}
+.hm div{padding:11px 4px;text-align:center;border-radius:7px;font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+.hm .h{color:var(--muted);background:none;font-family:var(--sans);font-weight:600;font-size:calc(14.5px * var(--k))}
+.hm .base{outline:2px solid var(--text);outline-offset:-2px}
+.hmcap{display:flex;justify-content:space-between;font-size:calc(14.5px * var(--k));color:var(--muted);margin-top:4px}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:calc(14.5px * var(--k));color:var(--muted);margin-top:12px}
+.legend span::before{content:"";display:inline-block;width:14px;height:14px;border-radius:4px;background:var(--c);vertical-align:-2px;margin-right:7px}
+/* flip cards */
+.flip{perspective:1200px;height:330px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column}
+.flip .f{background:var(--ink2)}
+.flip .f p{font-size:calc(17px * var(--k));color:var(--muted)}
+.flip .b{background:color-mix(in srgb,var(--verd) 10%,var(--ink2));border-color:var(--verd);transform:rotateY(180deg);font-size:calc(16px * var(--k));line-height:1.6;overflow:auto}
+.flip .f .n{font-family:var(--serif);font-size:calc(44px * var(--k));color:var(--brass);font-weight:400;line-height:1}
+.flip .f .hint{margin-top:auto;font-size:calc(14.5px * var(--k));font-weight:600;color:var(--brass2)}
+.flip:hover .f{border-color:var(--brass)}
+/* modes */
+.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+@media(max-width:1000px){.modes{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.modes{grid-template-columns:1fr}}
+.mode{border:1px solid var(--line);border-radius:var(--r);padding:18px;background:var(--ink2)}
+.mode p{font-size:calc(15.5px * var(--k));color:var(--muted);line-height:1.55}
+.chip{display:block;width:100%;text-align:left;margin:8px 0;padding:11px 13px;border-radius:10px;background:var(--ink);border:1.5px solid var(--line);color:var(--text);font-size:calc(15.5px * var(--k));line-height:1.4;cursor:pointer;font-family:var(--sans);transition:.2s}
+.chip:hover,.chip.on{border-color:var(--brass);background:var(--ink3)}
+.explain{margin-top:18px;min-height:90px}
+/* tables */
+.tablewrap{overflow-x:auto;margin-top:18px;border:1px solid var(--line);border-radius:var(--r);background:var(--ink2)}
+table.cmp{width:100%;border-collapse:collapse;font-size:calc(16.5px * var(--k));line-height:1.55;min-width:640px}
+table.cmp th,table.cmp td{padding:16px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+table.cmp tr:last-child td{border-bottom:0}
+table.cmp th{font-size:calc(14px * var(--k));font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);background:var(--ink3)}
+table.cmp td:first-child{font-family:var(--serif);font-weight:600;font-size:calc(18px * var(--k));width:21%}
+table.cmp td.old{color:var(--muted)}
+table.cmp tr:hover td{background:color-mix(in srgb,var(--brass) 5%,transparent)}
+.cmp.mode-old .new,.cmp.mode-new .old{display:none}
+.toggle{display:inline-flex;border:1.5px solid var(--line2);border-radius:999px;padding:3px;gap:3px;background:var(--ink2)}
+.toggle button{background:none;border:0;color:var(--text);font-family:var(--sans);font-weight:500;font-size:calc(15px * var(--k));padding:7px 15px;border-radius:999px;cursor:pointer}
+.toggle button.on{background:var(--brass);color:var(--on-accent)}
+.rowhead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:26px}
+.road .st{padding:16px;cursor:pointer;border:1.5px solid var(--line);border-top-width:4px;border-radius:12px;background:var(--ink2);transition:.3s;text-align:left;color:var(--text);font:inherit}
+.road .st:hover{border-color:var(--line2)}
+.road .st.on{border-color:var(--brass);background:color-mix(in srgb,var(--brass) 10%,var(--ink2))}
+.road .st .k{font-size:calc(13px * var(--k));font-weight:600;letter-spacing:.06em;color:var(--dim);text-transform:uppercase}
+.road .st.on .k{color:var(--brass)}
+.road .st .t{font-family:var(--serif);font-size:calc(19px * var(--k));font-weight:500;margin-top:6px;line-height:1.3}
+/* radar */
+.radar-wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:36px;align-items:start}
+.radar-box{background:var(--ink2);border:1px solid var(--line2);border-radius:var(--r);padding:18px 14px 18px}
+#radar{width:100%;height:auto;display:block;touch-action:none;user-select:none;outline:none}
+#radar:focus-visible{outline:3px solid var(--brass);outline-offset:4px}
+.radar-tip{margin:8px 10px 0;padding:14px 16px;border-radius:10px;background:var(--ink);border:1px solid var(--line);min-height:84px;font-size:calc(16px * var(--k));line-height:1.5}
+.radar-tip b{display:block;font-size:calc(17px * var(--k));margin-bottom:3px}
+.radar-tip span{color:var(--muted)}
+.radar-ctl{display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center;margin:14px 10px 0}
+.sw{display:flex;align-items:center;gap:10px;font-size:calc(15.5px * var(--k));font-weight:600;color:var(--text);cursor:pointer}
+.sw input[type=checkbox]{width:20px;height:20px;accent-color:var(--brass)}
+.sw input[type=range]{width:150px}
+.sw output{color:var(--brass2)}
+.aitem{border:1px solid var(--line);border-radius:12px;margin-bottom:8px;background:var(--ink2);overflow:hidden}
+.aitem.open{border-color:var(--brass)}
+.aitem .arow{width:100%;background:none;border:0;color:var(--text);font:inherit;text-align:left;grid-template-columns:28px 1fr 84px 50px 16px}
+.aitem .chev{color:var(--brass2);transition:.3s}
+.aitem.open .chev{transform:rotate(180deg)}
+.abody{display:none;padding:4px 12px 16px;border-top:1px solid var(--line)}
+.aitem.open .abody{display:block}
+.abtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btn.sm{padding:7px 14px;font-size:calc(14.5px * var(--k))}
+@media(max-width:960px){.radar-wrap{grid-template-columns:1fr}}
+.arow{display:grid;grid-template-columns:30px 1fr 150px 54px;gap:14px;align-items:center;padding:12px 14px;cursor:pointer;font-size:calc(16.5px * var(--k));line-height:1.35}
+.arow:hover{background:var(--ink3)}
+.arow .p{font-family:var(--mono);font-size:calc(15px * var(--k));text-align:right}
+/* tail */
+.tail-trig{display:inline-block;margin:5px 6px 5px 0;padding:6px 13px;border-radius:999px;background:color-mix(in srgb,var(--red) 12%,var(--ink));border:1.5px solid var(--red);font-size:calc(15.5px * var(--k));font-weight:500}
+.tlink{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:10px;cursor:pointer;font-size:calc(17px * var(--k))}
+.tlink:hover{background:var(--ink3)}
+.tlink i{font-family:var(--serif);color:var(--brass);font-size:calc(20px * var(--k));width:22px}
+/* book */
+.bookctl{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.hbar{display:grid;grid-template-columns:170px 1fr 60px;gap:14px;align-items:center;margin:10px 0;font-size:calc(16px * var(--k))}
+.hbar .bar{height:16px}
+.hbar .bar i.hot{background:linear-gradient(90deg,var(--amber),var(--red))}
+.hbar .p{font-family:var(--mono);text-align:right;font-size:calc(15px * var(--k))}
+.wall{display:flex;align-items:flex-end;gap:8px;height:210px;margin-top:16px;border-bottom:2px solid var(--line2);padding:0 4px}
+.wall .c{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%}
+.wall .c span{font-family:var(--mono);font-size:calc(13.5px * var(--k));color:var(--text)}
+.wall .c i{display:block;width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--brass),var(--verd));transition:height .5s}
+.wall .c i.hot{background:linear-gradient(180deg,var(--red),var(--amber))}
+.wall-l{display:flex;gap:8px;padding:6px 4px 0;font-size:calc(14px * var(--k));color:var(--muted);font-weight:500}
+.wall-l span{flex:1;text-align:center}
+/* workout */
+.qs{display:grid;gap:10px;margin-top:18px}
+.qrow{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--ink2);font-size:calc(16.5px * var(--k));line-height:1.45}
+.yn{display:inline-flex;border:1.5px solid var(--line2);border-radius:999px;overflow:hidden;flex:none}
+.yn button{background:none;border:0;color:var(--text);padding:7px 15px;font-family:var(--sans);font-weight:600;font-size:calc(14.5px * var(--k));cursor:pointer}
+.yn button.y.on{background:var(--green);color:var(--on-accent)}
+.yn button.n.on{background:var(--red);color:var(--on-accent)}
+.outcome{border-radius:var(--r);padding:28px;border:2px solid var(--line2);min-height:240px;transition:.4s;background:var(--ink2);position:sticky;top:96px}
+.outcome .t{font-family:var(--serif);font-size:calc(30px * var(--k));font-weight:500;line-height:1.2;margin:8px 0 14px}
+/* levers */
+.lever{border-top:1px solid var(--line);padding:6px 0}
+.lever:last-child{border-bottom:1px solid var(--line)}
+.lever .h{display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:14px;width:100%;background:none;border:0;color:var(--text);font:inherit;text-align:left;padding:14px 4px}
+.lever .h b{font-family:var(--serif);font-size:calc(22px * var(--k));font-weight:600;margin-left:10px}
+.lever .body{display:none;padding:0 4px 20px}
+.lever.on .body{display:grid;grid-template-columns:1fr 1.4fr;gap:28px}
+@media(max-width:760px){.lever.on .body{grid-template-columns:1fr}}
+.lever .plus{font-size:calc(24px * var(--k));color:var(--brass);transition:.3s;flex:none}
+.lever.on .plus{transform:rotate(45deg)}
+/* signals */
+.sig{transition:.4s}
+.sig.off{border-style:dashed;background:var(--ink2)}
+.sig.off h3{color:var(--text)}
+.sig.off .mini{color:var(--muted)}
+.sig .when{font-family:var(--sans);font-weight:600;font-size:calc(14.5px * var(--k));color:var(--text)}
+.sig .vis{font-size:calc(13px * var(--k));font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+/* misc */
+.quoteblock{font-family:var(--serif);font-size:calc(clamp(24px,2.6vw,34px) * var(--k));font-weight:400;line-height:1.4;max-width:900px;margin:0 auto;text-align:center}
+.quoteblock b{font-weight:500;color:var(--brass2)}
+footer{padding:64px 24px;text-align:center;color:var(--muted);font-size:calc(15px * var(--k));line-height:1.9}
+footer b{color:var(--text);font-weight:600;letter-spacing:.04em}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(30px);background:var(--brass);color:var(--on-accent);padding:12px 20px;border-radius:999px;font-weight:600;font-size:calc(15px * var(--k));opacity:0;transition:.35s;z-index:99;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media(max-width:700px){.hm{grid-template-columns:64px repeat(5,1fr);font-size:calc(13px * var(--k))}.hm div{padding:9px 2px}.radar-wrap svg{max-width:340px;margin:0 auto}.qrow{flex-direction:column;align-items:flex-start}.topbar{padding:10px 14px;gap:10px}body{font-size:calc(17px * var(--k))}section{padding:76px 18px}.card,.panelbox{padding:20px}#drawer .panel{padding:22px 20px 60px}.hbar{grid-template-columns:110px 1fr 50px}.aitem .arow{grid-template-columns:24px 1fr 60px 44px 14px}}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--brass);color:var(--on-accent);padding:10px 16px;border-radius:8px;font-weight:600}
+.skip:focus{left:12px}
+@media print{
+ body{background:#fff!important;color:#000!important;font-size:11pt}
+ body::before,.hero canvas,.hero::after,.topbar,#progress,.cta,.presets,.toast,#drawer,.tsize,.radar-ctl,.radar-tip{display:none!important}
+ section{padding:24pt 0;border:0;page-break-inside:auto}
+ .reveal{opacity:1!important;transform:none!important}
+ .card,.panelbox,.kpi,.flip .f,.mode,.aitem,.tablewrap{background:#fff!important;border-color:#999!important;box-shadow:none!important;break-inside:avoid}
+ .flip{height:auto}.flip .in{transform:none!important}.flip .b{position:static;transform:none;backface-visibility:visible;margin-top:8pt}.flip .f{position:static}
+ .aitem .abody{display:block!important}
+ *{color:#000!important}
+ a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#thesis">Skip to content</a>
+<noscript><div style="padding:14px 24px;background:#d4b06a;color:#111827;font-weight:600">This guide's calculators and checklists need JavaScript. The written content remains readable below.</div></noscript>
+<div id="progress"></div>
+<header class="topbar">
+  <a class="brand" href="#top">Lending <span>Well</span></a>
+  <nav class="topnav" id="topnav">
+    <a href="#thesis"><i>I</i>Thesis</a>
+    <a href="#lifecycle"><i>II</i>Lifecycle</a>
+    <a href="#seven"><i>III</i>Seven</a>
+    <a href="#evidence"><i>IV</i>Evidence</a>
+    <a href="#development"><i>V</i>Development</a>
+    <a href="#stress"><i>VI</i>Stress</a>
+    <a href="#rules"><i>VII</i>Rules</a>
+    <a href="#modes"><i>VIII</i>Modes</a>
+    <a href="#edge"><i>IX</i>Edge</a>
+    <a href="#book"><i>X</i>Book</a>
+    <a href="#workout"><i>XI</i>Workout</a>
+    <a href="#culture"><i>XII</i>Culture</a>
+    <a href="#change"><i>XIII</i>Change</a>
+    <a href="#tail"><i>XIV</i>Tail</a>
+    <a href="#signals"><i>XV</i>Signals</a>
+    <a href="#roadmap"><i>XVI</i>Roadmap</a>
+    <a href="#assess"><i>XVII</i>Assess</a>
+  </nav>
+  <div class="tsize" role="group" aria-label="Text size"><button data-k="1" class="on" aria-label="Standard text">A</button><button data-k="1.12" aria-label="Larger text" style="font-size:17px">A</button><button data-k="1.25" aria-label="Largest text" style="font-size:20px">A</button></div>
+  <button class="iconbtn" id="themeBtn" aria-label="Switch between light and dark reading modes">Light mode</button>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="top">
+  <canvas id="field"></canvas>
+  <div class="wrap" style="position:relative">
+    <div class="eyebrow">A Field Guide for Property Lenders · Valuation · Risk · Culture</div>
+    <h1>Property Valuation &amp;<br><em>the Advantage of Using Risk Management</em><br>to Lend Well</h1>
+    <p class="lede">Seven pressure points where valuation review most often fails within underwriting — and the incentives, governance, monitoring and cultural practice that turn risk management from a late-stage hurdle into the lender's competitive edge across origination, loan management and recovery.</p>
+    <div class="cta">
+      <a class="btn solid" href="#seven">Open the Seven ↓</a>
+      <a class="btn" href="#stress">Run the stress tester</a>
+      <a class="btn ghost" href="#assess">Self-assess your process</a>
+    </div>
+    <div class="byline"><b>Mark Downham</b> FRICS · MBA · FNARA · RPR · MPhil<br>Senior Consultant — Recoveries, Debt Advisory, LPA &amp; Fixed Charge Receiver<br>November 2026</div>
+  </div>
+</section>
+
+<!-- I THESIS -->
+<section id="thesis">
+  <div class="wrap">
+    <div class="sec-num">I.</div>
+    <h2>The valuation is not a number.<br>It is an instrument.</h2>
+    <div class="narrow">
+      <p class="lede">All lenders pay close attention to valuation. This guide exists to reinforce why — and to show that a quality review of the report gives assurance not only at the initial lending decision, but again during the management of the loan and, if it comes to it, in any recovery action.</p>
+      <p>Every valuation report is a dense field of data-points, each of which can act as a risk management tool: the basis of value and its date, the assumptions and special assumptions, the scope and limits of inspection, the comparable schedule and its adjustments, the commentary on marketability, tenure and occupation, planning and sustainability. Read as a single headline figure, the report tells the lender almost nothing. Read as an instrument, it tells the lender where the loan will break.</p>
+      <p>The guide pairs that instrument with a second discipline. Lending cultures that reward volume, collateral reliance and rapid completion do not read reports well, however good their policies. Cultures that reward long-term portfolio resilience, cash-flow discipline and early candour do. Risk management is the bridge between the two — and, practised well, it is also a source of commercial advantage: <b>faster certainty for good borrowers, flexible structures where the asset deserves them, and earlier intervention where it does not.</b></p>
+    </div>
+    <div class="aph">The number is the least of it · Read the instrument, not the headline</div>
+    <div class="triad">
+      <div><span class="pill">Origination</span><b>Underwrite</b>Does the report answer the questions the lender actually asked — and does the credit paper rely only on what the report can bear?</div>
+      <div><span class="pill">Monitoring</span><b>Manage</b>Is the original thesis — value, income, exit — still true under today's rates, yields and local supply?</div>
+      <div><span class="pill">Enforcement</span><b>Recover</b>When the receiver walks in, what does the security truly consist of, who will buy it, and how fast?</div>
+    </div>
+    <h4 style="margin-top:56px">How this guide is organised</h4><nav class="toc"><a href="#thesis"><i>I</i><span>The valuation as instrument<small>Why the headline figure is the least of it</small></span></a><a href="#lifecycle"><i>II</i><span>One report, three lives<small>Underwrite · manage · recover</small></span></a><a href="#seven"><i>III</i><span>The seven pressure points<small>Working files for each area of review</small></span></a><a href="#evidence"><i>IV</i><span>Comparable evidence<small>Interactive: when was the price agreed?</small></span></a><a href="#development"><i>V</i><span>Development appraisals<small>Interactive: gearing of the residual</small></span></a><a href="#stress"><i>VI</i><span>Stress tester<small>Interactive: value, refinance and recovery</small></span></a><a href="#rules"><i>VII</i><span>Why rules alone fail<small>Eight failure modes in property lending</small></span></a><a href="#modes"><i>VIII</i><span>Four modes of control<small>Rule · boundary · heuristic · convene</small></span></a><a href="#edge"><i>IX</i><span>The competitive edge<small>Pricing, structure, speed and funding</small></span></a><a href="#book"><i>X</i><span>The book, not the deal<small>Interactive: concentration and maturity wall</small></span></a><a href="#workout"><i>XI</i><span>Support or enforce<small>Interactive: workout threshold</small></span></a><a href="#culture"><i>XII</i><span>Culture<small>From policing to partnering</small></span></a><a href="#change"><i>XIII</i><span>How change happens<small>Small moves, short feedback, new rituals</small></span></a><a href="#tail"><i>XIV</i><span>Rehearse the tail<small>Interactive: recovery rehearsal</small></span></a><a href="#signals"><i>XV</i><span>Lead and lag indicators<small>Interactive: the signal horizon</small></span></a><a href="#roadmap"><i>XVI</i><span>Implementation roadmap<small>Ninety days, two tracks</small></span></a><a href="#assess"><i>XVII</i><span>Self-assessment<small>Interactive: score your review process</small></span></a></nav>
+  </div>
+</section>
+
+<!-- II LIFECYCLE -->
+<section id="lifecycle">
+  <div class="wrap">
+    <div class="sec-num">II.</div>
+    <h2>One report, three lives</h2>
+    <p class="narrow muted">Select a stage of the loan. The bars show how heavily each of the seven pressure points bears on that stage, and the note shows what the valuation has to do for the lender there. Click any row to open that pressure point.</p>
+    <div class="stages" id="stages"></div>
+    <div class="heat" id="heat"></div>
+    <div class="stage-note" id="stageNote"></div>
+  </div>
+</section>
+
+<!-- III SEVEN -->
+<section id="seven">
+  <div class="wrap">
+    <div class="sec-num">III.</div>
+    <h2>The seven pressure points</h2>
+    <p class="narrow">Seven areas where we commonly see issues when valuations are reviewed within the underwriting process. Each opens into a working file: the essence of the problem, the report data-points to verify (your ticks feed the self-assessment in §XVII), red flags, questions to put to valuer and borrower, the <i>do-case</i> statements that bound judgement, and the cultural lever that keeps the discipline alive.</p>
+    <div class="seven" id="sevenGrid"></div>
+  </div>
+</section>
+
+<!-- IV EVIDENCE -->
+<section id="evidence">
+  <div class="wrap">
+    <div class="sec-num">IV.</div>
+    <h2>A comparable has three birthdays</h2>
+    <div class="split">
+      <div>
+        <p>The date printed against a comparable is usually its <b>completion</b> — or, worse, the date it surfaced in published registry data. But the price was struck when the sale was <b>agreed</b>, and that moment reflects market sentiment as it then was. With conveyancing commonly running for months, and registry publication lagging further behind, a comparable that looks fresh can be describing a market that no longer exists.</p>
+        <p>In stable markets this is noise. In volatile markets — rapid movement in values, prices and activity — it is the difference between a sound and an unsound loan. Move the sliders to see how far behind the valuation date the evidence's true price-formation moment sits, and what a monthly market drift does to it.</p>
+        <div class="aph">Ask when the price was agreed, not when it was published</div>
+      </div>
+      <div class="panelbox">
+        <div class="ctrl">
+          <div><label>Agreed → completion (months) <output id="o_conv"></output></label><input type="range" id="conv" min="1" max="9" step="0.5" value="4"></div>
+          <div><label>Completion → registry visible (months) <output id="o_reg"></output></label><input type="range" id="reg" min="0" max="9" step="0.5" value="3"></div>
+          <div><label>Visible → valuation date (months) <output id="o_use"></output></label><input type="range" id="use" min="0" max="9" step="0.5" value="2"></div>
+          <div><label>Market drift (% per month) <output id="o_drift"></output></label><input type="range" id="drift" min="-2" max="1.5" step="0.1" value="-0.6"></div>
+        </div>
+        <div class="tl" id="tl"></div><div class="tlkey" id="tlkey"></div>
+        <div class="kpis">
+          <div class="kpi" id="k_age"><div class="l">Price formed</div><div class="v" id="v_age">—</div><div class="s">months before valuation date</div></div>
+          <div class="kpi" id="k_drift"><div class="l">Implied mis-statement</div><div class="v" id="v_drift">—</div><div class="s">if unadjusted for time</div></div>
+        </div>
+        <div class="verdict" id="v_comp"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- V DEVELOPMENT -->
+<section id="development">
+  <div class="wrap">
+    <div class="sec-num">V.</div>
+    <h2>The gearing of the residual</h2>
+    <div class="split">
+      <div>
+        <p>The market has less appetite for development while material and labour costs remain elevated and the timeframes for regulatory approvals stay protracted. A residual appraisal is a geared instrument: land value is what remains after gross development value has paid for cost, fees, contingency, finance and profit. Small movements at the top of the appraisal become very large movements at the bottom.</p>
+        <p>Inexperienced or over-optimistic developers are frequently caught out — short of funds to complete, or without an exit vehicle — and the lender is left exposed. Adjust the appraisal and watch the residual heatmap. Cells turn red where the residual falls below the day-one land loan: the point at which the lender's security is no longer covered by the scheme's own economics.</p>
+        <div class="aph">The exit is underwritten on day one — or not at all</div>
+      </div>
+      <div class="panelbox">
+        <div class="ctrl">
+          <div><label>GDV (£m) <output id="o_gdv"></output></label><input type="range" id="gdv" min="5" max="60" step="0.5" value="24"></div>
+          <div><label>Build cost (£m) <output id="o_bc"></output></label><input type="range" id="bc" min="2" max="40" step="0.25" value="13"></div>
+          <div><label>Fees + contingency (% of cost) <output id="o_fc"></output></label><input type="range" id="fc" min="5" max="25" step="0.5" value="15"></div>
+          <div><label>Developer's profit (% GDV) <output id="o_pr"></output></label><input type="range" id="pr" min="8" max="25" step="0.5" value="17.5"></div>
+          <div><label>Finance rate (%) <output id="o_fr"></output></label><input type="range" id="fr" min="4" max="14" step="0.25" value="9"></div>
+          <div><label>Programme + sales (months) <output id="o_pm"></output></label><input type="range" id="pm" min="9" max="48" step="1" value="24"></div>
+          <div><label>Day-one land loan (£m) <output id="o_ll"></output></label><input type="range" id="ll" min="0.5" max="10" step="0.1" value="2.2"></div>
+        </div>
+        <div class="kpis">
+          <div class="kpi" id="k_rlv"><div class="l">Residual land value</div><div class="v" id="v_rlv">—</div><div class="s" id="s_rlv"></div></div>
+          <div class="kpi" id="k_poc"><div class="l">Profit on cost</div><div class="v" id="v_poc">—</div><div class="s">profit ÷ total cost</div></div>
+        </div>
+        <h4>Residual land value sensitivity</h4><p class="mini muted" style="margin:0">Rows: change in GDV. Columns: change in build cost. Values are residual land value in £m. The outlined cell is your current appraisal.</p>
+        <div class="hm" id="hm"></div><div class="legend"><span style="--c:var(--green)">Covers land loan 1.3× or more</span><span style="--c:var(--amber)">Covers 1.0–1.3×</span><span style="--c:var(--red)">Below land loan</span></div>
+        <div class="note">Illustrative model: sales costs 2.5% of GDV; finance on an average of half the build spend across the programme. Not a substitute for a full cash-flow appraisal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VI STRESS -->
+<section id="stress">
+  <div class="wrap">
+    <div class="sec-num">VI.</div>
+    <h2>Stress tester: from headline value to recovery</h2>
+    <p class="narrow">Static, backward-looking valuation is replaced here by scenario testing: interest-rate shocks, yield expansion, vacancy cascades, stale evidence and a crowded exit. The tester carries the loan through to its <b>refinance test at maturity</b> and its <b>recovery in receivership</b>, and grades each result against the risk appetite thresholds you set. An interest-rate cap changes the ICR the borrower actually faces.</p>
+    <div class="presets" id="presets"></div>
+    <div class="split">
+      <div class="panelbox">
+        <h4 style="margin-top:0">Loan &amp; asset</h4>
+        <div class="ctrl">
+          <div><label>Reported market value (£)</label><input type="number" id="s_v" value="10000000" step="100000"></div>
+          <div><label>Loan (£)</label><input type="number" id="s_l" value="6000000" step="100000"></div>
+          <div><label>Net operating income (£ pa)</label><input type="number" id="s_noi" value="650000" step="10000"></div>
+          <div><label>All-in interest rate (%)</label><input type="number" id="s_i" value="6.5" step="0.1"></div>
+        </div>
+        <h4>Shocks</h4>
+        <div class="ctrl">
+          <div><label>Rate shock (bps) <output id="o_dr"></output></label><input type="range" id="s_dr" min="0" max="400" step="25" value="0"></div>
+          <div><label>Hedge: rate cap at (%) <output id="o_cap"></output></label><input type="range" id="s_cap" min="0" max="10" step="0.25" value="0"></div>
+          <div><label>Yield expansion (bps) <output id="o_dy"></output></label><input type="range" id="s_dy" min="0" max="300" step="25" value="0"></div>
+          <div><label>Vacancy / income loss (%) <output id="o_vac"></output></label><input type="range" id="s_vac" min="0" max="60" step="5" value="0"></div>
+          <div><label>Evidence staleness (months) <output id="o_st"></output></label><input type="range" id="s_st" min="0" max="12" step="1" value="0"></div>
+          <div><label>Market drift (%/month) <output id="o_md"></output></label><input type="range" id="s_md" min="-2" max="1" step="0.1" value="0"></div>
+        </div>
+        <h4>Exit &amp; recovery</h4>
+        <div class="ctrl">
+          <div><label>Refinance lender max LTV (%) <output id="o_rl"></output></label><input type="range" id="s_rl" min="40" max="75" step="5" value="65"></div>
+          <div><label>Refinance rate (%) <output id="o_rr"></output></label><input type="range" id="s_rr" min="4" max="12" step="0.25" value="7"></div>
+          <div><label>Restricted-marketing discount (%) <output id="o_fd"></output></label><input type="range" id="s_fd" min="0" max="40" step="2.5" value="10"></div>
+          <div><label>Recovery costs (% proceeds) <output id="o_rc"></output></label><input type="range" id="s_rc" min="1" max="10" step="0.5" value="4"></div>
+          <div><label>Time in receivership (months) <output id="o_hm"></output></label><input type="range" id="s_hm" min="3" max="30" step="1" value="9"></div>
+        </div>
+        <h4>Risk appetite thresholds</h4>
+        <div class="ctrl">
+          <div><label>Max LTV (%)</label><input type="number" id="t_ltv" value="65" step="1"></div>
+          <div><label>Min ICR (×)</label><input type="number" id="t_icr" value="1.6" step="0.05"></div>
+          <div><label>Min debt yield (%)</label><input type="number" id="t_dy" value="9" step="0.25"></div>
+        </div>
+      </div>
+      <div>
+        <div class="kpis" style="margin-top:0">
+          <div class="kpi" id="r_val"><div class="l">Stressed value</div><div class="v" id="x_val">—</div><div class="s" id="xs_val"></div></div>
+          <div class="kpi" id="r_ltv"><div class="l">Stressed LTV</div><div class="v" id="x_ltv">—</div><div class="s" id="xs_ltv"></div></div>
+          <div class="kpi" id="r_icr"><div class="l">Stressed ICR</div><div class="v" id="x_icr">—</div><div class="s" id="xs_icr"></div></div>
+          <div class="kpi" id="r_dy"><div class="l">Debt yield</div><div class="v" id="x_dy">—</div><div class="s" id="xs_dy"></div></div>
+          <div class="kpi" id="r_ref"><div class="l">Refinance capacity</div><div class="v" id="x_ref">—</div><div class="s" id="xs_ref"></div></div>
+          <div class="kpi" id="r_rec"><div class="l">Recovery rate</div><div class="v" id="x_rec">—</div><div class="s" id="xs_rec"></div></div>
+        </div>
+        <h4 style="margin-top:28px">From reported value to recovery</h4><svg id="waterfall" role="img" aria-label="Waterfall from reported value to net recovery compared with debt due" viewBox="0 0 560 250" style="width:100%;margin-top:18px"></svg>
+        <div class="verdict" id="s_verdict"></div>
+        <div class="note">Illustrative arithmetic only. Value is capitalised stressed income at the stressed yield, adjusted for evidence staleness. Refinance capacity = the lesser of the refinance LTV limit and the debt that the stressed income supports at the refinance rate and your ICR floor. Recovery adds income collected during receivership and compares net proceeds with the debt plus accrued interest.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VII RULES -->
+<section id="rules">
+  <div class="wrap">
+    <div class="sec-num">VII.</div>
+    <h2>Why rules alone fail the valuation review</h2>
+    <div class="narrow">
+      <p>Rules are attractive. They look clear, scale easily, reassure the board and, when things go wrong, identify a rule-breaker. They also assume that hindsight predicts foresight. That holds in the stable middle of a market's distribution of outcomes. It does not hold in the fat tail — the crowded receivership exit, the tenant that was never really arm's length, the scheme that ran out of money at practical completion. In the tail, exceptions are the norm, and the one certainty is unintended consequences.</p>
+      <p>The argument here is not against rules. It is against naïve faith in them. A rule should codify good practice that already exists; it cannot generate judgement. Turn each card to see how each failure mode shows up in property lending — and the remedy.</p>
+    </div>
+    <div class="grid g4" id="flips" style="margin-top:28px"></div>
+  </div>
+</section>
+
+<!-- VIII MODES -->
+<section id="modes">
+  <div class="wrap">
+    <div class="sec-num">VIII.</div>
+    <h2>Four modes of control</h2>
+    <p class="narrow">The first question to ask about any valuation issue is whether it is <b>ordered</b> — knowable in advance, answerable by checking — or <b>complex</b>, where the answer depends on interacting parties, moving markets and behaviour under stress. Each has its own control. Use rules only where they fit; elsewhere use rules as <i>boundary conditions</i> — a loose container that applies only when a threshold is crossed — or give way to heuristics, and in genuinely novel cases, convene the right roles to decide. Click an issue to see why it sits where it does.</p>
+    <div class="modes" id="modeCols"></div>
+    <div class="panelbox explain" id="modeExplain"><span class="muted">Select an issue above.</span></div>
+  </div>
+</section>
+
+<!-- IX EDGE -->
+<section id="edge">
+  <div class="wrap">
+    <div class="sec-num">IX.</div>
+    <h2>The competitive edge of lending well</h2>
+    <div class="narrow">
+      <p class="lede">Competitive advantage in risk-managed property lending comes from pairing bespoke, data-driven underwriting with proactive post-completion portfolio management.</p>
+      <p>Many lenders compete only on price or maximum loan-to-value. Market leaders outperform by structuring flexible capital around strong borrowers, diversifying correlation risk across the book, and testing exit viability throughout the loan's life. The seven pressure points are where that edge is won or lost: a lender who reads the valuation properly can say yes faster to a good deal, and no earlier to a bad one.</p>
+    </div>
+    <h4>Three pillars of lending well</h4>
+    <div class="grid g3">
+      <div class="card"><span class="pill">Pricing</span><h3 style="margin-top:12px">Granular risk pricing over blanket rules</h3><p class="mini">Move away from rigid, one-size-fits-all rate cards. Use live data capture to price risk to the borrower's track record, the asset's quality and the durability of its cash flow. A well-read valuation is the raw material: covenant strength, lease length, marketability and comparable reliability all belong in the price.</p></div>
+      <div class="card"><span class="pill">Book</span><h3 style="margin-top:12px">Correlation-aware diversification</h3><p class="mini">Manage exposure across the whole book, not deal by deal. Balance concentration across sectors (residential, industrial, HMO and others), regional economic drivers, tenant industries and loan maturity dates — so that the book does not face a refinancing shock all at once. See §X.</p></div>
+      <div class="card"><span class="pill">Structure</span><h3 style="margin-top:12px">Portfolio-level structuring</h3><p class="mini">For experienced borrowers, cross-collateralise several assets in a single facility. This cuts administrative friction and execution cost, and cushions the lender against a void or a local valuation dip at any one asset — provided each asset has been valued and reviewed on its own merits first.</p></div>
+    </div>
+    <h4 style="margin-top:44px">Competing without giving up discipline</h4>
+    <div class="rowhead">
+      <p class="muted" style="margin:0">Toggle to compare the traditional approach with the risk-managed advantage.</p>
+      <div class="toggle" id="edgeToggle"><button data-m="both" class="on">Both</button><button data-m="old">Traditional</button><button data-m="new">Risk-managed</button></div>
+    </div>
+    <div class="tablewrap"><table class="cmp" id="edgeTable">
+      <thead><tr><th>Competitive lever</th><th class="old">Traditional approach</th><th class="new">Risk-managed advantage</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <h4 style="margin-top:44px">Active portfolio management &amp; exit protection</h4>
+    <div class="grid g4">
+      <div class="card"><h3>Dynamic exit re-underwriting</h3><p class="mini">Keep testing whether the borrower's original exit — refinance or sale — is still realistic at current rates and yields, rather than waiting for maturity. The stress tester's refinance test (§VI) does this for one loan; the maturity wall (§X) does it for the book.</p></div>
+      <div class="card"><h3>Early warning systems</h3><p class="mini">Track leading indicators — DSCR compression, construction delay, shifts in tenant concentration, shrinking covenant headroom — so that intervention starts before a covenant breach does. See §XV.</p></div>
+      <div class="card"><h3>Covenant &amp; hedging oversight</h3><p class="mini">Monitor fixed-versus-floating exposure across the book, and require hedging (caps or swaps) where cash flow is rate-sensitive. Track cap expiry dates as closely as loan maturities: an expired cap is a rate shock with a known date.</p></div>
+      <div class="card"><h3>Disciplined workout thresholds</h3><p class="mini">Set clear commercial rules for when to support a struggling borrower with time or capital, and when to move to enforcement to protect principal. The decision aid in §XI makes those thresholds explicit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- X BOOK -->
+<section id="book">
+  <div class="wrap">
+    <div class="sec-num">X.</div>
+    <h2>The book, not the deal</h2>
+    <p class="narrow">Correlation is invisible deal by deal. Twelve sound loans can make one fragile book if they share a sector, a regional economy, a tenant industry or a maturity quarter. The sample book below is illustrative; switch the lens and set the concentration limit. Bars over the limit turn red, as do maturity quarters that would put too much of the book through the refinance market at once.</p>
+    <div class="bookctl" id="bookLens"></div>
+    <div class="ctrl" style="max-width:520px"><div><label>Concentration limit (% of book) <output id="o_cl"></output></label><input type="range" id="cl" min="10" max="50" step="5" value="25"></div></div>
+    <div class="split">
+      <div class="panelbox"><h4 style="margin-top:0" id="lensTitle">Exposure</h4><div id="bars"></div></div>
+      <div class="panelbox"><h4 style="margin-top:0">Maturity wall — exposure refinancing by quarter</h4><div class="wall" id="wall"></div><div class="wall-l" id="wallL"></div><p class="mini muted" style="margin-top:14px" id="wallNote"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- XI WORKOUT -->
+<section id="workout">
+  <div class="wrap">
+    <div class="sec-num">XI.</div>
+    <h2>Support or enforce: a workout threshold</h2>
+    <div class="split">
+      <div>
+        <p class="narrow">Traditional lending reaches for enforcement at the first sign of delay; undisciplined lending extends and pretends. The risk-managed lender spots distress early and offers structured extensions or fresh capital <b>when the underlying asset is still viable</b> — and moves decisively to protect principal when it is not. Answer the questions; the aid sets out the indicated route and what the valuation must now tell you.</p>
+        <div class="qs" id="wq"></div>
+      </div>
+      <div class="outcome" id="wout"></div>
+    </div>
+  </div>
+</section>
+
+<!-- XII CULTURE -->
+<section id="culture">
+  <div class="wrap">
+    <div class="sec-num">XII.</div>
+    <h2>Culture: from policing to partnering</h2>
+    <div class="narrow">
+      <p>Risk management drives cultural change in property banking by shifting incentives away from loan volume and towards long-term portfolio resilience and disciplined underwriting. A traditional lending culture rewards rapid origination and reliance on collateral. Changing it means building risk governance into everyday decisions and into how people are paid and promoted. Cultural change fails when risk management is seen as an adversarial hurdle.</p>
+    </div>
+    <div id="levers" style="margin-top:28px"></div>
+    <h4 style="margin-top:44px">Traditional vs risk-driven lending culture</h4>
+    <div class="rowhead"><p class="muted" style="margin:0">Toggle to compare one culture with the other.</p><div class="toggle" id="cultToggle"><button data-m="both" class="on">Both</button><button data-m="old">Traditional</button><button data-m="new">Risk-driven</button></div></div>
+    <div class="tablewrap"><table class="cmp" id="cultTable"><thead><tr><th>Dimension</th><th class="old">Traditional lending culture</th><th class="new">Risk-driven lending culture</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</section>
+
+<!-- XIII CHANGE -->
+<section id="change">
+  <div class="wrap">
+    <div class="sec-num">XIII.</div>
+    <h2>How the change actually happens</h2>
+    <div class="narrow">
+      <p>Most culture programmes in lending fail in the same way: a token workshop where everyone agrees change is necessary, a new policy, an annual survey that reports a year late, and a team already tired of change. Meanwhile the real culture carries on in the conversations between a relationship manager and a credit analyst at the end of the day.</p>
+      <p>If change happens at all, it happens in those day-to-day interactions — so that is where to act, and where to watch. It is far easier to change how people connect than to change each person. The practices below set a <b>direction of travel</b> rather than a fixed end state, start from where the institution actually is, and rely on short feedback loops.</p>
+    </div>
+    <div class="grid g3" style="margin-top:26px" id="changeGrid"></div>
+  </div>
+</section>
+
+<!-- XIV TAIL -->
+<section id="tail">
+  <div class="wrap">
+    <div class="sec-num">XIV.</div>
+    <h2>Rehearse the tail</h2>
+    <div class="split">
+      <div>
+        <p>A valuation is written in the middle of the distribution, but losses happen in the tail. The cheapest way to learn the tail is to rehearse it before it arrives. A <b>recovery rehearsal</b> takes a live loan, assumes a default, and walks origination, credit, valuation, legal and recovery staff through the receiver's first ninety days. Each rehearsal should be built so that failure is inevitable; the heuristics that emerge are recorded.</p>
+        <p>Each rehearsal adds to a <b>worst-practice library</b>: case files of how loans actually failed. This is more valuable than any best-practice manual, because it shows which data-points in which reports were the early warnings that nobody read.</p>
+        <button class="btn solid" id="tailBtn">Draw a tail scenario ↻</button>
+      </div>
+      <div class="card tail-card" id="tailOut"></div>
+    </div>
+  </div>
+</section>
+
+<!-- XV SIGNALS -->
+<section id="signals">
+  <div class="wrap">
+    <div class="sec-num">XV.</div>
+    <h2>Lead indicators, lag indicators</h2>
+    <p class="narrow">Compliance is a lag indicator: it tells you after the event whether the form was filled in. Attitudes and weak signals are lead indicators: they shift before the loss, and changing them costs less. Move the horizon to see which signals are visible at each distance from default — and which of the seven pressure points each one tests.</p>
+    <div class="ctrl" style="max-width:560px"><div><label>Months before default <output id="o_hz"></output></label><input type="range" id="hz" min="0" max="24" step="1" value="18"></div></div>
+    <div class="grid g3" id="sigGrid"></div>
+  </div>
+</section>
+
+<!-- XVI ROADMAP -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="sec-num">XVI.</div>
+    <h2>Implementation roadmap</h2>
+    <p class="narrow">Two tracks running in parallel: a ninety-day <b>portfolio track</b> that protects the book now, and a <b>cultural track</b> that changes how the next loan is made. Select a stage.</p>
+    <div class="road" id="road"></div>
+    <div class="panelbox" id="roadOut" style="margin-top:10px"></div>
+  </div>
+</section>
+
+<!-- XVII ASSESS -->
+<section id="assess">
+  <div class="wrap">
+    <div class="sec-num">XVII.</div>
+    <h2>Self-assessment: how well does your process read a valuation?</h2>
+    <p class="narrow">Score the seven pressure points in whichever way suits you. <b>Drag or click directly on the radar</b> to set a quick score for any area, or <b>open an area below</b> and tick the individual data-points your process reliably verifies — not what the policy says it should. Both methods update each other. Your answers are kept in this browser only.</p>
+    <div class="radar-wrap">
+      <div class="radar-box">
+        <svg id="radar" role="img" viewBox="0 0 780 590" aria-label="Coverage radar"></svg>
+        <div class="radar-tip" id="radarTip"><b>Hover or tap an area</b><span>Drag outward along any spoke to raise its score.</span></div>
+        <div class="radar-ctl">
+          <label class="sw"><input type="checkbox" id="tgtOn" checked> Show target</label>
+          <label class="sw">Target <output id="o_tgt" class="num">80%</output> <input type="range" id="tgt" min="40" max="100" step="5" value="80"></label>
+        </div>
+      </div>
+      <div>
+        <div class="kpis" style="margin-top:0">
+          <div class="kpi" id="a_tot"><div class="l">Overall coverage</div><div class="v" id="a_v">0%</div><div class="s" id="a_s"></div></div>
+          <div class="kpi" id="a_gap"><div class="l">Weakest area</div><div class="v" id="a_w" style="font-size:calc(22px * var(--k));line-height:1.3">—</div><div class="s" id="a_ws">start here</div></div>
+        </div>
+        <div id="assessList" style="margin-top:18px"></div>
+        <div class="cta"><button class="btn" id="copyBtn">Copy full field checklist</button><button class="btn" id="dlBtn">Download checklist (.txt)</button><button class="btn ghost" id="printBtn">Print / save as PDF</button><button class="btn ghost" id="allBtn">Tick everything</button><button class="btn ghost" id="resetBtn">Reset</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:0">
+  <div class="quoteblock">Ensure leadership visibly rewards a <b>disciplined “no”</b> on a poorly structured deal as much as it celebrates a major completion — because the loan you did not make is also part of the book.</div>
+</section>
+</main>
+
+<footer>
+LENDING WELL · A FIELD GUIDE TO VALUATION, RISK AND CULTURE IN PROPERTY LENDING<br>
+© 2026 Mark Downham FRICS · November 2026<br>
+For discussion with lending professionals. Illustrative models only — not valuation, legal or financial advice.
+</footer>
+
+<div id="drawer"><div class="scrim"></div><div class="panel" id="dpanel"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ DATA ============ */
+const SEVEN=[
+{n:1,title:"How to read valuation reports",short:"The report as a field of risk data-points — and the instruction framework that must match it.",aph:"The number is the least of it",mode:"rule",life:[3,2,2],
+essence:[
+"All valuation reports contain numerous data-points that act as risk management tools. The headline figure is the least informative of them. What carries the risk is the scaffolding around it: the basis of value, the valuation date, the assumptions and special assumptions, the extent of inspection, what was taken on trust from the borrower, how much weight the comparables can bear, and what the valuer says — or is careful not to say — about marketability and suitability as security.",
+"We often find that the lender's instruction framework is not aligned with the data-points the report presents. The instruction asks for one thing; the report answers a slightly different question; and the credit paper quotes the headline as though the two were the same. A lender that asked for a value under a restricted marketing period, and received only an unrestricted market value, has not been answered — however professional the report looks. The result can be an inadequate assessment of lending risk that remains hidden until recovery.",
+"The discipline is simple to state: <b>read the instruction and the report side by side, and treat every departure as a finding.</b> Read the report again at each later stage of the loan, because the assumptions that were background at origination become the main facts in a recovery."],
+data:["Report addressed to, and relied on by, the lender (reliance letter where needed)","Basis of value, valuation date and any special assumptions match the instruction","Restricted-marketing or vacant-possession values provided where instructed","Extent of inspection and limitations stated and accepted","Borrower-supplied information identified and independently verified","Valuer independence, previous involvement and conflicts declared","Any material valuation uncertainty stated and reflected in the credit paper","Valuer's commentary on suitability as security, marketability and risks read and carried into credit"],
+flags:["Valuation instructed through the borrower or broker rather than by the lender","Report silent on a special assumption the instruction required","Income, tenancy or cost information “as provided by the client” and not checked","The valuer has acted for the borrower on the same asset","Credit paper quotes the headline value but not the caveats","Report dated well before drawdown in a moving market"],
+qs:["Which single assumption, if wrong, moves this value the most?","Did the report answer every question our instruction asked — and where did it answer a different one?","What would you expect the property to achieve within a restricted marketing period, and to whom?","What information did you rely on that you did not verify yourself?"],
+docase:["Instructed special assumption absent → return to valuer before the credit paper is written.","Material valuation uncertainty declared → credit paper states it and sizes the loan on the stressed value.","Income relies on borrower-supplied data → verify against leases and rent receipts before reliance.","Valuer previously acted for the borrower → independent second opinion.","Report older than the lender's validity window at drawdown → update or written reliance confirmation."],
+culture:"Run monthly reading clinics where originators and analysts jointly mark up a live report against its instruction letter. Within a few cycles they share a vocabulary — and the relationship manager starts catching the missing special assumption before credit does."},
+{n:2,title:"Inappropriate comparable evidence",short:"The date of the transaction — and the date the price was actually agreed.",aph:"A comparable has three birthdays",mode:"boundary",life:[3,2,3],
+essence:[
+"Check the date of every transaction reported. This matters most in volatile markets, where values, prices and activity can change quickly. And given current conveyancing timeframes, think about the date on which the sale was originally <b>agreed</b>: that is when the price was formed, and the completion date can be many months later.",
+"Registry data now seems to take a long time to update. Evidence that lenders and valuers usually rely on from that source can be out of date by the time it appears. A comparable schedule can look recent while describing a market that has since moved.",
+"Comparability is also about more than dates. Location, sub-market, size, specification, tenure, condition, lot size and buyer type (special purchaser, portfolio buyer, distressed seller) all matter. Rental evidence must be read on a <b>net effective</b> basis, after rent-free periods and incentives, not at headline rent. A new scheme's own sales must be read net of incentives such as paid stamp duty, furniture packs or deposit contributions."],
+data:["Each comparable shows the date agreed as well as the completion date","Source stated (agent-verified, registry, asking price) and given appropriate weight","Adjustments for time, size, location and specification shown and explained","Rental evidence analysed on a net effective basis","Scheme's own sales shown net of incentives","Comparables from the same sub-market and buyer type","Valuer comments on current market direction and how it was reflected","Number and spread of comparables enough to support the conclusion"],
+flags:["Asking prices used as primary evidence","All comparables older than six months in a market described as moving","Unexplained or one-directional adjustments","Evidence from a different sub-market or buyer pool","Headline rents with no incentive analysis","The developer's or agent's own transactions supplied without verification"],
+qs:["When was each of these sales agreed, and what has the market done since?","Which comparables would you discard in a falling market, and what would the value be then?","Are any comparables sales by connected parties or forced sellers?","What is the net effective rent after all incentives?"],
+docase:["Market flagged as moving and evidence older than the lender's threshold → valuer provides date-agreed or agent-verified recent deals.","Asking-price evidence → supporting only, never primary, and discounted with a stated rationale.","Scheme's own sales → analysed net of all incentives.","Rental comparables → net effective, with rent-free periods disclosed.","Fewer than three credible comparables → refer for a second opinion or a more conservative basis."],
+culture:"Make “when was it agreed?” a ritual question at every credit huddle, asked by whoever presents the deal. Its value is that it becomes habit, not that a rule demands it."},
+{n:3,title:"Over-optimistic development appraisals",short:"Cost, red tape and the exit that must be understood before the facility is agreed.",aph:"The exit is underwritten on day one",mode:"heuristic",life:[3,3,2],
+essence:[
+"The market has less appetite for development because material and labour costs have risen and development “red tape” keeps timeframes long. Planning conditions to discharge, building-safety approvals for higher-risk buildings, biodiversity and environmental obligations, utility connections — each adds months, and each month adds interest and cost.",
+"Inexperienced or over-optimistic developers are often caught out. They run short of funds to complete, or cannot find an exit vehicle, and the lender is left exposed. The residual method is geared: small errors in gross development value or cost become large errors in land value and in the cushion protecting the loan (see §V).",
+"<b>The key is to understand the exit and sale strategy before agreeing the loan facility.</b> Who buys, at what price, and how fast? Does that sales rate match local absorption? If the exit is a refinance, at what rate and value, and with which lender? Cost-to-complete monitoring, staged drawdowns linked to verified milestones, and equity committed ahead of debt are how the lender keeps the appraisal honest after completion."],
+data:["GDV supported by current, local new-build evidence net of incentives","Build cost from a quantity surveyor's report, dated, with its source stated","Contingency appropriate to the scheme's complexity and stage","Professional fees, finance costs and sales costs fully included","Programme includes realistic time for discharge of conditions and regulatory approvals","Sales or letting rate tested against local absorption and competing schemes","Profit margin enough to absorb a credible cost overrun","Exit route (sale / refinance) and pre-sales or pre-lets evidenced"],
+flags:["Contingency below a level the scheme's risk justifies","Sales rate faster than the local market has achieved","Profit squeezed to the minimum, leaving no cushion","Programme with no float for approvals","Fixed-price contract with a contractor of weak covenant","Land value in the appraisal above what the residual supports"],
+qs:["If sales stall for twelve months, who pays the interest?","Who funds a 10% cost overrun, and is that money committed now?","Which approvals are still outstanding, and what happens to the programme if each slips by a quarter?","What is the refinance exit worth at today's rates, not the rates in the appraisal?"],
+docase:["Profit on cost falls below the lender's floor under a 10% cost overrun → decline or restructure with more equity.","No independent cost report → no credit approval.","Exit relies on refinance → stress the refinance at a higher rate and lower value.","Programme longer than the valuer's view → appraisal re-run on the longer programme.","Sponsor's first scheme of this type → monitoring surveyor and milestone-linked drawdowns as conditions."],
+culture:"Bring the credit officer and the monitoring surveyor into the term-sheet meeting, not the final committee. Development loans are shaped at the start; bringing credit in at the end only shows what already went wrong."},
+{n:4,title:"Planning and use considerations",short:"Security over what the lender believes it has — or what it actually has.",aph:"Security you cannot use is not security",mode:"rule",life:[3,1,3],
+essence:[
+"Any assumption about planning permission or existing use should always be checked through thorough legal enquiries. A lender does not want to find that it has taken security over something without the correct planning in place.",
+"The risks are routine and avoidable: an “established use” with no certificate of lawfulness; a conversion under permitted development where the conditions of prior approval were not met; a permission close to expiry; unpaid or onerous planning obligations or infrastructure levy liabilities; an Article 4 direction removing permitted development rights; an HMO without the required licence; building regulations completion never obtained. Each can reduce the value — or the saleability — of the security at exactly the moment a receiver needs to sell.",
+"These are <b>ordered</b> problems. They can be known in advance and verified by checking. That makes them the right place for firm rules — and the wrong place for judgement calls made under pressure to complete."],
+data:["Planning history obtained and consistent with the valuer's assumptions","Lawful use confirmed (consent or certificate of lawfulness)","Conditions, especially pre-commencement conditions, confirmed discharged","Planning obligations and levy liabilities identified and costed","Permitted development / prior approval compliance evidenced where relied on","Building regulations completion certificates for works and conversions","Licensing (e.g. HMO) confirmed where applicable","No enforcement notices or breaches outstanding"],
+flags:["Valuation “assumes” lawful use or planning with no legal confirmation","Conversion with no building regulations completion","Permission near expiry with no evidence of lawful commencement","HMO income with no licence","Outstanding planning obligation payments","Enforcement history mentioned in passing"],
+qs:["Has our solicitor confirmed every planning assumption the valuer made?","If this use proved unlawful, what is the value of the lawful alternative?","Are there any conditions or obligations that would pass to a buyer from a receiver?"],
+docase:["Any planning assumption in the report → solicitor's report on title and planning confirms it before drawdown.","Use relies on permitted development / prior approval → evidence of approval and compliance with its conditions.","Licensable HMO → licence verified and its expiry diarised.","Enforcement noted → refer to credit with an alternative-use value.","Permission close to expiry → evidence of lawful commencement or revised valuation."],
+culture:"Give legal and credit a single shared planning checklist, signed by both. Accountability shared in public is stronger than a handover between departments."},
+{n:5,title:"Lease and occupational issues",short:"Legitimacy, covenant strength — and the connected party behind the lease.",aph:"A lease is only as good as the hand that signed it",mode:"boundary",life:[3,3,3],
+essence:[
+"A lender should always obtain up-to-date occupational leases, satisfy itself that they are genuine, and assess the tenant's covenant strength. Income is the asset in most investment lending. If the income is not real, the value is not real either.",
+"Be alert to leases between related parties and the effect this may have on perceived value. A lease granted shortly before valuation to a company sharing directors, addresses or shareholders with the borrower can make a vacant building look like an investment. It can carry a rent above market, a long term and a weak covenant, and it may disappear the day a receiver is appointed.",
+"Read beyond the rent: side letters, rent-free periods and other incentives, break dates, repairing terms, security of tenure, deposits, arrears and service-charge recovery. Concentration matters too. A single tenant, or one tenant industry, may produce most of the income."],
+data:["Certified copies of all leases, licences and side letters obtained","Rent roll reconciled to bank receipts","Tenant covenant assessed (accounts, credit data, trading history)","Connected-party checks on tenants (directors, shareholders, addresses)","Break dates, expiries, incentives and rent-free periods schedule","Passing rent compared with Market Rent; over-renting identified","Security of tenure, repairing terms and service charge reviewed","Income concentration by tenant and tenant industry measured"],
+flags:["Lease granted shortly before valuation","Tenant shares a director or address with the borrower","Rent well above Market Rent with no comment from the valuer","Tenant company has no filed accounts or trading history","Side letters disclosed late or not at all","Most income from one tenant or one industry"],
+qs:["Is any tenant connected to the borrower?","What is the value with vacant possession, and on Market Rent?","Which leases survive a receivership, and on what terms?","What happens to income if the largest tenant breaks?"],
+docase:["Connected-party lease → value on Market Rent or vacant-possession basis.","Lease under six months old → evidence that rent has actually been paid.","Over-rented → value reflects the reversion to Market Rent.","Single tenant above the lender's income-concentration threshold → covenant deep-dive and break-date stress.","Side letters → reviewed by solicitor and reflected in net income."],
+culture:"Encourage “near-miss” reporting. When a reviewer finds a connected-party lease, the finding — not just the declined deal — goes into the shared case library and is discussed openly, without blame."},
+{n:6,title:"Marketability, divestment and exit",short:"The market for this property type, here — and the queue a receiver will join.",aph:"Recovery is priced by the queue",mode:"convene",life:[2,3,3],
+essence:[
+"Consider the market for this property type in this specific area. What is the loan repayment and exit strategy? A value is only as good as the buyers who will pay it, within a time the lender can wait.",
+"In mortgagee-assisted sales, recoveries and receiverships, competing developments and similar properties being marketed and sold at the same time can directly affect the level of recovery and the value. A receiver's buyer pool is the same pool everyone else is selling to. When distressed stock clusters — by sector, by region, by vintage of loan — the discount widens and marketing periods lengthen.",
+"So more thought needs to go into a <b>dynamic and responsive approach to loan management</b>, with periodic confirmation of value and interim reviews of the asset management plan. Marketability is not fixed at origination. It is a moving condition, to be re-read throughout the life of the loan."],
+data:["Valuer's opinion on marketing period and likely buyer pool","Restricted-marketing value provided and used for recovery sizing","Competing stock currently or soon to be marketed locally","Liquidity of the property type (specialist, trading-related, bespoke)","Exit strategy evidenced (sale demand / refinance appetite)","Alternative-use value where the current use is niche","Periodic value checks diarised through the loan term","Interim asset management plan reviews scheduled"],
+flags:["Niche or trading-related asset valued as a standard investment","Exit relies on a single buyer type","Large competing supply coming to market","Refinance exit at rates well below current market","No interim value check in a facility of several years","Valuer comments that marketing may be “extended”"],
+qs:["Who are the buyers if we have to sell in six months, and how many are there?","What else like this will be for sale at the same time?","What would a receiver have to do to make this saleable?","How often will we confirm value and review the plan?"],
+docase:["Exit is sale → evidence of buyer depth and current absorption.","Exit is refinance → stress at a higher rate and lower value (see §VI).","Specialist / trading asset → valuation reflecting trading potential and operator covenant.","Competing stock identified → recovery sized on restricted-marketing value.","Anything else novel → convene origination, credit, valuation, legal and recovery; decide; record the case."],
+culture:"Ask your recovery specialists to review new loans. A receiver's ten minutes on a credit paper is the cheapest insurance a lender can buy."},
+{n:7,title:"Borrower asset management plans",short:"The plan — and whether this borrower can actually deliver it.",aph:"Lend to the plan, through the person",mode:"convene",life:[3,3,1],
+essence:[
+"Some lenders do not spend enough time understanding the asset management plans that borrowers intend to carry out, or whether the borrower has the competence, know-how and track record to deliver them. This is a lending risk in its own right and must be addressed.",
+"Value-add lending is a loan against a future that the borrower has to create: refurbishment, re-letting, re-gearing leases, change of use, energy-efficiency upgrades. The valuation can value the plan, but it cannot value the person. Sponsor experience in this asset class, team depth, liquidity, previous lender history and the realism of the capital-expenditure budget all decide whether the plan becomes value or becomes a workout.",
+"Underwrite the plan as a sequence of milestones, each with an observable result. Then the asset management plan becomes a monitoring tool and does not stay a document nobody reads after completion."],
+data:["Written asset management plan with timeline, budget and leasing strategy","Sponsor track record in the same asset class and scale","Team, key-person dependency and outsourced capability assessed","Capex budget costed independently and ring-fenced","LTV sized on current value, not post-works value","Milestones linked to reporting covenants","Liquidity and guarantor strength verified","Energy-performance and ESG upgrade path costed (physical and transition risk)"],
+flags:["First scheme of its type for this sponsor","LTV quoted on post-works value","No capex reserve or ring-fencing","Leasing assumptions ahead of the local market","Everything depends on one individual","Previous lender history incomplete or not disclosed"],
+qs:["Show us the last time you did this — what went wrong, and what did you do?","Who on your team delivers each milestone?","What happens to the plan if letting takes twice as long?","Where is the capex money now?"],
+docase:["Value-add plan → LTV on as-is value.","First-time sponsor in the asset class → tighter covenants, monitoring and staged drawdowns.","Capex not ring-fenced → reserve account as a condition.","Plan milestones → reporting covenants with defined triggers.","Plan materially changed after completion → convene and re-underwrite."],
+culture:"Ask relationship managers to complete credit and restructuring rotations. A manager who has sat through a workout reads a business plan differently from one who has only originated."}
+];
+const MODECLS={rule:"Rule",boundary:"Boundary",heuristic:"Heuristic",convene:"Convene"};
+
+const STAGES=[
+{k:"STAGE 01",t:"Underwrite",i:0,note:"<b>At origination the valuation is a gate and a map.</b> It answers whether the security supports the loan and where the loan will break. The test is alignment: does the report answer the instruction, and does the credit paper rely only on what the report can bear? Pricing, structure and covenants should all be calibrated to what the report reveals: covenant strength, comparable reliability, marketability and the sponsor's plan."},
+{k:"STAGE 02",t:"Manage",i:1,note:"<b>During the loan the valuation is a baseline to re-read.</b> Its assumptions become monitoring triggers: lease events, milestones, market drift, competing supply. Periodic value checks and interim reviews of the asset management plan are how the lender finds out whether the original thesis still holds — and whether the exit is still realistic at today's rates and yields."},
+{k:"STAGE 03",t:"Recover",i:2,note:"<b>In recovery the valuation becomes evidence.</b> The receiver relies on it to know what the security really is: which leases survive, what planning permits, who will buy and how quickly. The receiver owes a duty to take reasonable care to obtain the true market value at the time of sale, so weak assumptions that were tolerated at origination become the receiver's problem — and the lender's shortfall."}
+];
+
+const FLIPS=[
+{t:"Freezing context",f:"Rules assume a static world.",b:"The panel instruction written for a stable market keeps accepting twelve-month-old comparables after the market turns. Staff develop workarounds that the system depends on — then are blamed when a workaround fails.<br><br><b>Remedy:</b> express evidence rules as boundaries that tighten automatically when a market is flagged as moving."},
+{t:"Incentivising gaming",f:"People optimise for the measure, not the intent.",b:"Valuation shopping. Instructions worded to land on a target LTV. Credit papers written to pass the checklist rather than to describe the risk. When a measure becomes a target, it stops being a good measure.<br><br><b>Remedy:</b> lender-controlled instruction, panel rotation, and review of the valuer's <i>assumptions</i>, not only the number."},
+{t:"Obscuring real patterns",f:"Blame falls on the last failure, not the chain.",b:"The post-mortem focuses on the covenant breach. It misses the comparable that was stale, the lease that was connected, the review that was waived — each of which passed its own rule.<br><br><b>Remedy:</b> loss reviews that trace the whole chain back to the valuation data-points."},
+{t:"Procedural blindness",f:"The checklist is complete; the threat is missed.",b:"Every box is ticked — leases received, covenant checked — but nobody noticed that the tenant shares a registered office with the borrower. Checklists can pull attention away from the cues in the context.<br><br><b>Remedy:</b> pair every checklist with one open question: “what here surprises you?”"},
+{t:"Suppressing initiative",f:"Rigid rules stop people experimenting.",b:"Reviewers stop raising concerns the form has no box for. Deviations go underground; concerns surface only in extremis, usually after the loss.<br><br><b>Remedy:</b> early, low-stakes channels to record soft concerns on any live loan."},
+{t:"Compliance theatre",f:"Paperwork replaces attention.",b:"The audit asks whether the valuation was received, not whether it was read. The file is complete and the judgement is missing. Effort goes into evidencing the process, not doing the work.<br><br><b>Remedy:</b> sample audits that test understanding — ask the originator to explain the report's three weakest assumptions."},
+{t:"Erosion of trust",f:"Punishment drives concealment.",b:"If the relationship manager who flags a deteriorating loan is penalised, the next one waits until it can't be hidden. Workarounds become habits; habits become culture.<br><br><b>Remedy:</b> psychological safety for early warnings; penalise concealment, not candour."},
+{t:"Catastrophic surprise",f:"Rules seem to work — until they fail all at once.",b:"Incidents in complex systems come mainly from unpredictable interactions, not rule-breaking: rates, yields, contractor insolvency and competing supply arriving together. Rules tuned to the middle offer no protection in the tail.<br><br><b>Remedy:</b> stress-test the tail (§VI) and rehearse it (§XIV)."}
+];
+
+const ISSUES=[
+{t:"Reliance letter / lender as addressee",m:"rule",w:"Fully knowable in advance and checkable in seconds. A rule codifies existing good practice and does not need judgement."},
+{t:"Instructed special assumptions present",m:"rule",w:"An alignment check between two documents. Ordered, binary and auditable — ideal for a rule."},
+{t:"Lawful use / planning confirmation",m:"rule",w:"Legal facts that can be verified before drawdown. Treat as a firm condition precedent."},
+{t:"Building regulations sign-off for conversions",m:"rule",w:"Documentary and binary. Rules work here precisely because the context does not move."},
+{t:"Report age at drawdown",m:"boundary",w:"Acceptable in a stable market, risky in a moving one. The rule fires only when a validity window is crossed or the market is flagged as moving."},
+{t:"Comparable staleness",m:"boundary",w:"A loose container: below the threshold the valuer's judgement stands; above it, date-agreed or agent-verified evidence is required."},
+{t:"Connected-party leases",m:"boundary",w:"Once a connection is found, a rule applies (value on Market Rent / vacant possession). Finding the connection needs attention, not a checklist."},
+{t:"Material valuation uncertainty",m:"boundary",w:"The declaration triggers a fixed response — loan sized on stressed value — but the size of the stress is a judgement."},
+{t:"Development contingency & profit headroom",m:"boundary",w:"A floor under a 10% overrun is a sensible boundary; above it, the shape of the scheme matters more than the number."},
+{t:"Asking-price evidence weight",m:"heuristic",w:"“Supporting, never primary” — a short principle that guides judgement where the right discount varies by market."},
+{t:"Tenant covenant strength",m:"heuristic",w:"Credit data informs, but trading reality, industry and sub-market resilience call for practised judgement guided by heuristics."},
+{t:"Sales-rate realism",m:"heuristic",w:"“No faster than the market has achieved” — a heuristic grounded in local absorption, not a universal number."},
+{t:"Exit liquidity in a crowded market",m:"convene",w:"Depends on what other lenders, receivers and sellers do at the same time. Unknowable in advance: convene origination, credit, valuation and recovery; decide; record the case."},
+{t:"Sponsor competence on a first value-add scheme",m:"convene",w:"A judgement about people, plans and contingencies. Best made by several roles together, with the outcome documented."},
+{t:"Specialist / trading-related asset",m:"convene",w:"Value depends on an operator and a trade. Standard rules mislead; assemble specialist valuation, credit and recovery views."},
+{t:"Transition risk / stranded asset potential",m:"convene",w:"Regulation, tenant demand and retrofit cost interact over time. Needs scenario thinking and joint judgement, not a single threshold."}
+];
+
+const EDGE=[
+["Structuring","Rigid senior debt capped at standard LTVs (e.g. 60%–65%).","Structural flexibility: stretched senior, mezzanine or capex tranches (up to 75% LTV for target IRRs above 8%), backed by step-in rights and tight milestone drawdowns — only where the seven pressure points have been cleared."],
+["Speed & certainty","Slow committee cycles and late-stage re-trades.","Pre-vetted credit governance: automated credit modelling and clear upfront mandates give borrowers rapid certainty. Reading the valuation early is what makes speed safe."],
+["Borrower alignment","Adversarial covenant enforcement at the first sign of delay.","Commercial partnership: spotting distress early and offering structured extensions or capital injections when the underlying asset remains viable (§XI)."],
+["Capital stack","Reliance on a single warehouse line or funding source.","Diversified funding: revolving credit facilities, private placements and institutional capital, keeping liquidity and pricing resilient across rate cycles."],
+["Pricing","Blanket rate cards by LTV band.","Granular risk pricing to track record, asset quality and cash-flow durability, informed by the valuation's data-points."],
+["Book construction","Deals assessed in isolation.","Correlation-aware diversification across sector, region, tenant industry and maturity (§X)."]
+];
+
+const CULT=[
+["Primary goal","Short-term loan volume and fee growth","Sustainable, risk-adjusted portfolio returns"],
+["Role of risk team","Late-stage “gatekeeper” or compliance hurdle","Early-stage commercial partner and adviser"],
+["Underwriting focus","Historical valuations and collateral value","Forward-looking cash flows, stress resilience and ESG"],
+["Reading the valuation","Headline value transcribed into the credit paper","Report read as an instrument against its instruction"],
+["Incentive structure","Tied to origination volume and upfront fees","Tied to RAROC, economic profit, multi-year performance and asset quality"],
+["Problem-loan approach","Reactive enforcement and workout","Proactive monitoring through early warning systems"],
+["Learning","Best-practice manuals","Worst-practice library and tail rehearsals"]
+];
+
+const LEVERS=[
+{t:"Realign incentives and accountability",tag:"Incentives",a:"Traditional property lenders often see friction between relationship managers (sales) and credit risk teams. Cultural change begins when both share ownership of loan outcomes.",b:["<b>Risk-adjusted performance metrics:</b> replace volume-based bonuses with RAROC or economic-profit measures that reflect early defaults and covenant breaches.","<b>Multi-year horizon:</b> link rewards to how the originated book performs over several years, not to upfront fees.","<b>First-line ownership:</b> train origination teams to screen out marginal deals before they reach credit committee — and to own the valuation review at the point of transaction."]},
+{t:"Move from collateral-first to cash flow and ESG",tag:"Underwriting",a:"Property banking has relied on LTV and rising asset values. Modern risk frameworks require a broader view of credit quality.",b:["<b>Cash-flow discipline:</b> enforce DSCR and ICR thresholds so the loan does not depend on appreciation in a downturn.","<b>Climate and transition risk:</b> make physical risk (flooding, heat stress) and transition risk (energy performance, stranded-asset potential) core credit criteria. This pushes lenders and borrowers to work together on retrofits.","<b>Concentration limits:</b> hard caps on sub-sectors such as speculative offices or high-leverage development, to prevent herd behaviour (§X)."]},
+{t:"Transform governance and communication",tag:"Governance",a:"Risk management fails as a change agent when it is seen only as a compliance bottleneck.",b:["<b>Early risk involvement:</b> bring credit officers into deal structuring at term-sheet stage, as commercial partners rather than late-stage gatekeepers.","<b>Clear risk appetite statements:</b> turn board appetite into specific thresholds — LTV bands, ICR floors, sector limits, evidence-age boundaries — so the front line knows what “good” looks like before pitching to clients.","<b>Shared accountability forums:</b> joint deal forums where origination, credit, valuation and recovery review complex transactions together."]},
+{t:"Psychological safety and escalation",tag:"Candour",a:"Deteriorating loans are cheaper to fix the earlier they surface.",b:["<b>Near-miss reporting:</b> relationship managers can report early warnings — delayed construction milestones, tenant departures, a doubtful lease — without fear of immediate penalty.","<b>Blame on concealment, not candour:</b> make clear that the career risk lies in hiding a problem, not in raising one.","<b>Disciplined “no”:</b> leadership visibly rewards well-reasoned declines as much as major completions."]},
+{t:"Use data and stress testing",tag:"Data",a:"Objective data takes emotion and personal bias out of lending decisions and weakens old “gut-feel” dealmaking habits.",b:["<b>Dynamic stress testing:</b> require standard sensitivity analysis — rate spikes, vacancy, yield expansion — on every proposal (§VI).","<b>Portfolio transparency:</b> give front-line staff live dashboards showing how their loans affect bank concentration and capital consumption.","<b>Self-service tools:</b> give originators pricing and stress tools so they can structure resilient deals themselves."]},
+{t:"Cross-functional training",tag:"Capability",a:"A shared risk language is built through shared experience, not through memos.",b:["<b>Shadowing:</b> credit analysts attend client meetings; originators attend valuation reading clinics.","<b>Rotations:</b> relationship managers complete credit and restructuring rotations.","<b>Apprenticeship:</b> train people to improvise within principles rather than obey blindly — the way experienced receivers learn."]}
+];
+
+const CHANGE=[
+{t:"Start from where you are",b:"Map the present before designing the future: where deals stall, where covenant breaches start, which reviews get waived, how front-line staff actually see credit policy. Change that ignores the current state usually just adds to it."},
+{t:"Direction of travel, not end state",b:"Set goals as direction and speed — “more deals with credit involved at term sheet this quarter than last” — rather than a utopian target that invites gaming and declares failure on day one."},
+{t:"Change interactions, not individuals",b:"There are too many individuals to retrain one by one. Change how roles meet: the deal huddle, the reading clinic, the recovery review. New habits form in those meetings."},
+{t:"Many small, safe experiments",b:"Run several low-cost interventions in parallel across teams. Amplify the ones that move behaviour in the right direction and quietly drop those that don't. No single big programme carries the whole risk of failure."},
+{t:"Short-cycle feedback",b:"Replace the annual survey cycle with frequent, light capture of short stories from deal teams: “a moment this month when risk helped or hindered a deal.” Patterns show up within weeks, not years."},
+{t:"Ritualise role interaction",b:"Borrow from high-reliability crews in operating theatres and cockpits: a structured pre-brief before a credit meeting, explicit call-outs of concerns, a short debrief after completion. Good behaviour comes from rituals and habits more than from rules."},
+{t:"Do-case statements",b:"For each critical decision, define what to do in up to about five known cases. For anything else, convene the relevant roles, decide and record the result. The library of decided cases becomes the institution's practical knowledge."},
+{t:"Distribute the decision",b:"Within clear boundary conditions, move decisions to the people closest to the asset, with built-in traceability. Speed and certainty for borrowers improve without loosening discipline."},
+{t:"Measure attitudes as lead indicators",b:"How front-line staff see risk policy — as a partner or as a hurdle — shifts before loss data does. It is cheaper to measure and cheaper to change. Compliance rates show you only what has already happened."}
+];
+
+const TRIG=[
+{t:"Anchor tenant enters administration",p:[5,6,1]},{t:"Contractor insolvency at 70% complete",p:[3,7,6]},{t:"Base rate +200bps over two quarters",p:[6,3,1]},
+{t:"Rate cap expires at month 18",p:[6,7]},{t:"Neighbouring scheme launches 120 units",p:[2,6,3]},{t:"Certificate of lawful use never obtained",p:[4,1,6]},
+{t:"Connected-party lease surrenders",p:[5,1,2]},{t:"Regulatory approval slips nine months",p:[3,4,7]},{t:"Minimum energy standard tightens",p:[7,6,1]},
+{t:"Sponsor's key individual leaves",p:[7,3]},{t:"Sector yields widen 100bps",p:[2,6,1]},{t:"Three receivers selling similar stock locally",p:[6,2]},
+{t:"Flood event affects insurance terms",p:[1,6,7]},{t:"Valuation relied on asking prices",p:[2,1]},{t:"HMO licence refused on renewal",p:[4,5,6]}
+];
+
+const SIGNALS=[
+{t:"Front-line reluctance to raise concerns",at:24,p:[1,7],k:"Attitude"},
+{t:"Credit brought in late on deal after deal",at:22,p:[1,3],k:"Attitude"},
+{t:"Comparable evidence ageing in a moving market",at:20,p:[2],k:"Market"},
+{t:"Competing local supply announced",at:18,p:[6,2],k:"Market"},
+{t:"Exit re-test shows refinance gap",at:17,p:[6],k:"Exit"},
+{t:"Borrower reporting arrives late",at:15,p:[7],k:"Behaviour"},
+{t:"Hedge or cap expiry approaching",at:14,p:[6],k:"Rates"},
+{t:"Drawdown requested ahead of verified milestones",at:13,p:[3,7],k:"Development"},
+{t:"Change of contractor or cost-plan revision",at:12,p:[3],k:"Development"},
+{t:"Tenant arrears creeping; break notices",at:11,p:[5],k:"Income"},
+{t:"DSCR / ICR headroom compressing",at:9,p:[5,6],k:"Cash flow"},
+{t:"Marketing launched, few offers, price cuts",at:7,p:[6,2],k:"Exit"},
+{t:"Request to waive a covenant",at:5,p:[7,5],k:"Covenant"},
+{t:"Covenant breach",at:3,p:[],k:"Lag"},
+{t:"Payment default",at:1,p:[],k:"Lag"},
+{t:"Receiver appointed",at:0,p:[],k:"Lag"}
+];
+
+const ROAD=[
+{k:"MONTH 1 · PORTFOLIO",t:"Audit concentration & stress-test exits",b:["Map the loan book by geography, asset class, maturity date and borrower exposure.","Stress-test upcoming maturities against current refinance rates and exit yields.","Identify loans where the valuation relied on assumptions — stale comparables, connected leases, unverified planning — that would fail in recovery.","Map hedging: which caps and swaps expire, and when."]},
+{k:"MONTH 2 · PORTFOLIO",t:"Upgrade monitoring & data capture",b:["Automate tracking of covenant headroom, construction milestones and live market comparables.","Diarise periodic value checks and interim asset management plan reviews for every facility.","Set up the early-warning dashboard (§XV) with clear triggers for intervention.","Start the worst-practice library from loans already in workout."]},
+{k:"MONTH 3 · PORTFOLIO",t:"Refine origination & funding mix",b:["Introduce tiered, risk-adjusted pricing for repeat borrowers.","Diversify the lender's own funding — revolving lines, institutional co-lending — to protect origination capacity through market shifts.","Publish the risk appetite thresholds and do-case statements for each of the seven pressure points."]},
+{k:"CULTURE · DIAGNOSE",t:"Diagnose cultural friction",b:["Audit where deals stall, where covenant breaches originate and how front-line staff see credit policy.","Collect short stories from deal teams about moments when risk helped or hindered.","Measure attitudes now as the baseline lead indicator."]},
+{k:"CULTURE · REDESIGN",t:"Redesign scorecards",b:["Overhaul KPIs and pay for front-line and second-line teams to reflect shared portfolio outcomes (RAROC, economic profit, multi-year asset quality).","Add a measure for early-warning candour.","Recognise disciplined declines alongside completions."]},
+{k:"CULTURE · EQUIP & CHAMPION",t:"Equip and champion from the top",b:["Give originators self-service pricing and stress-testing tools.","Start reading clinics, joint deal forums and recovery rehearsals.","Leadership visibly rewards a disciplined “no” on a poorly structured deal as much as a major completion."]}
+];
+
+const BOOK=[
+{id:"L01",s:"Residential",r:"London",ti:"Mixed",q:"Q1-27",e:6.2},
+{id:"L02",s:"Industrial",r:"Midlands",ti:"Logistics",q:"Q2-27",e:8.5},
+{id:"L03",s:"Office",r:"London",ti:"Professional services",q:"Q1-27",e:9.8},
+{id:"L04",s:"HMO",r:"North West",ti:"Mixed",q:"Q3-27",e:3.1},
+{id:"L05",s:"Development",r:"South East",ti:"Mixed",q:"Q1-27",e:11.4},
+{id:"L06",s:"Retail",r:"Midlands",ti:"Retail",q:"Q4-27",e:4.0},
+{id:"L07",s:"Office",r:"South East",ti:"Professional services",q:"Q2-27",e:7.2},
+{id:"L08",s:"Industrial",r:"North West",ti:"Logistics",q:"Q1-28",e:5.6},
+{id:"L09",s:"Residential",r:"London",ti:"Mixed",q:"Q1-27",e:4.8},
+{id:"L10",s:"Development",r:"London",ti:"Mixed",q:"Q3-27",e:9.0},
+{id:"L11",s:"Leisure",r:"South West",ti:"Hospitality",q:"Q2-28",e:3.6},
+{id:"L12",s:"HMO",r:"Midlands",ti:"Mixed",q:"Q4-27",e:2.8}
+];
+
+/* ============ HELPERS ============ */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const fmt=n=>"£"+(Math.abs(n)>=1e6?(n/1e6).toFixed(2)+"m":Math.round(n).toLocaleString("en-GB"));
+const pct=(n,d=1)=>(n*100).toFixed(d)+"%";
+function ragBadge(sel){const e=$(sel);if(!e)return;let b=e.querySelector(".st");if(!b){b=document.createElement("span");b.className="st";e.appendChild(b)}b.textContent=e.classList.contains("rag-g")?"Pass":e.classList.contains("rag-a")?"Watch":e.classList.contains("rag-r")?"Breach":"";b.style.display=b.textContent?"":"none"}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1800)}
+var io;let store={};
+try{store=JSON.parse(localStorage.getItem("lw_checks")||"{}")}catch(e){store={}}
+function save(){try{localStorage.setItem("lw_checks",JSON.stringify(store))}catch(e){}}
+
+/* ============ HERO FIELD ============ */
+(function(){const c=$("#field"),x=c.getContext("2d");let w,h,pts=[];
+function rs(){w=c.width=c.offsetWidth*devicePixelRatio;h=c.height=c.offsetHeight*devicePixelRatio;pts=[];for(let i=0;i<70;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3})}
+rs();addEventListener("resize",rs);
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function f(){x.clearRect(0,0,w,h);const br=getComputedStyle(document.body).getPropertyValue("--brass").trim();
+for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}
+for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<160*devicePixelRatio){x.globalAlpha=(1-d/(160*devicePixelRatio))*.35;x.strokeStyle=br;x.lineWidth=.6*devicePixelRatio;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+x.globalAlpha=.6;x.fillStyle=br;for(const p of pts){x.beginPath();x.arc(p.x,p.y,1.4*devicePixelRatio,0,7);x.fill()}
+if(!reduce)requestAnimationFrame(f)}f()})();
+
+/* ============ LIFECYCLE ============ */
+function renderStage(si){
+ $("#stages").innerHTML=STAGES.map((s,i)=>`<button class="stage ${i===si?"on":""}" data-i="${i}" aria-pressed="${i===si}"><div class="k">${s.k}</div><div class="t">${s.t}</div></button>`).join("");
+ $("#heat").innerHTML=SEVEN.map(p=>`<div class="heatrow" data-n="${p.n}"><div class="n">${p.n}</div><div><div class="ttl">${p.title}</div><div class="bar"><i style="width:${p.life[si]/3*100}%"></i></div></div><div class="pill" style="justify-self:end;${p.life[si]===3?"border-color:var(--brass);color:var(--brass2)":""}">${["","Contributory","Significant","Critical"][p.life[si]]}</div></div>`).join("");
+ $("#stageNote").innerHTML=STAGES[si].note;
+ $$("#stages .stage").forEach(e=>e.onclick=()=>renderStage(+e.dataset.i));
+ $$("#heat .heatrow").forEach(e=>e.onclick=()=>openPP(+e.dataset.n));
+}
+renderStage(0);
+
+/* ============ SEVEN ============ */
+function doneFrac(n){const p=SEVEN[n-1];let c=0;p.data.forEach((_,i)=>{if(store[n+"_"+i])c++});return c/p.data.length}
+function renderSeven(){
+ $("#sevenGrid").innerHTML=SEVEN.map(p=>`<div class="card pp reveal" role="button" tabindex="0" aria-label="Open pressure point ${p.n}: ${p.title}" data-n="${p.n}" style="--done:${doneFrac(p.n)}"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div class="big">${p.n}</div><span class="pill ${p.mode}">${MODECLS[p.mode]}</span></div><h3>${p.title}</h3><p class="sum">${p.short}</p><div class="aphs">${p.aph}</div><div class="prog">${Math.round(doneFrac(p.n)*p.data.length)} of ${p.data.length} data-points ticked</div><div class="open">Open working file →</div></div>`).join("");
+ $$("#sevenGrid .pp").forEach(e=>{e.onclick=()=>openPP(+e.dataset.n);e.onkeydown=k=>{if(k.key==="Enter"||k.key===" "){k.preventDefault();openPP(+e.dataset.n)}}});
+ observe();
+}
+function openPP(n,tab){
+ const p=SEVEN[n-1];tab=tab||"essence";
+ const tabs=[["essence","Essence"],["data","Data-points"],["flags","Red flags"],["qs","Questions"],["docase","Do-cases"],["culture","Culture lever"]];
+ $("#dpanel").innerHTML=`<div class="dtop"><div class="eyebrow">Pressure point ${p.n} of 7 &nbsp;<span class="pill ${p.mode}">${MODECLS[p.mode]}</span></div><button class="iconbtn" id="dclose">Close ✕</button></div>
+ <h2 style="margin-top:14px">${p.title}</h2><div class="aph">${p.aph}</div>
+ <div class="tabs">${tabs.map(t=>`<button class="tab ${t[0]===tab?"on":""}" data-t="${t[0]}">${t[1]}</button>`).join("")}</div>
+ <div class="tabpane ${tab==="essence"?"on":""}" data-t="essence">${p.essence.map(x=>`<p>${x}</p>`).join("")}
+   <h4>Lifecycle weight</h4><div class="lifew">${STAGES.map((s,i)=>`<div><div class="mini">${s.t} · <span class="muted">${["","contributory","significant","critical"][p.life[i]]}</span></div><div class="bar"><i style="width:${p.life[i]/3*100}%"></i></div></div>`).join("")}</div></div>
+ <div class="tabpane ${tab==="data"?"on":""}" data-t="data"><p class="muted">Tick what your process reliably verifies. Your ticks feed the self-assessment radar in §XVII.</p>${p.data.map((d,i)=>`<label class="chk"><input type="checkbox" data-k="${n}_${i}" ${store[n+"_"+i]?"checked":""}><span>${d}</span></label>`).join("")}</div>
+ <div class="tabpane ${tab==="flags"?"on":""}" data-t="flags">${p.flags.map(f=>`<div class="flag">${f}</div>`).join("")}</div>
+ <div class="tabpane ${tab==="qs"?"on":""}" data-t="qs">${p.qs.map(q=>`<div class="q">“${q}”</div>`).join("")}</div>
+ <div class="tabpane ${tab==="docase"?"on":""}" data-t="docase"><p class="muted">Up to five known cases, each with a defined response. Anything outside them is convened, decided and recorded.</p>${p.docase.map((d,i)=>`<div class="docase"><div class="i">${String(i+1).padStart(2,"0")}</div><div>${d}</div></div>`).join("")}<div class="docase else"><div class="i">∗</div><div><b>Everything else:</b> convene origination, credit, valuation, legal and recovery; decide; document the case; add it to the library.</div></div></div>
+ <div class="tabpane ${tab==="culture"?"on":""}" data-t="culture"><p class="lede" style="font-size:calc(21px * var(--k))">${p.culture}</p></div>
+ <div class="cta" style="margin-top:34px">${n>1?`<button class="btn ghost" id="dprev">← ${SEVEN[n-2].title}</button>`:""}${n<7?`<button class="btn" id="dnext">${SEVEN[n].title} →</button>`:""}</div>`;
+ $("#drawer").classList.add("open");document.body.style.overflow="hidden";
+ $$("#dpanel .tab").forEach(b=>b.onclick=()=>{$$("#dpanel .tab").forEach(x=>x.classList.toggle("on",x===b));$$("#dpanel .tabpane").forEach(x=>x.classList.toggle("on",x.dataset.t===b.dataset.t))});
+ $$("#dpanel input[type=checkbox]").forEach(c=>c.onchange=()=>{store[c.dataset.k]=c.checked;save();renderSeven();renderAssess()});
+ $("#dclose").onclick=closeD;
+ if($("#dprev"))$("#dprev").onclick=()=>{openPP(n-1,currentTab());$("#dpanel").scrollTop=0};
+ if($("#dnext"))$("#dnext").onclick=()=>{openPP(n+1,currentTab());$("#dpanel").scrollTop=0};
+}
+function currentTab(){const t=$("#dpanel .tab.on");return t?t.dataset.t:"essence"}
+function closeD(){$("#drawer").classList.remove("open");document.body.style.overflow=""}
+$("#drawer .scrim").onclick=closeD;
+addEventListener("keydown",e=>{if(e.key==="Escape")closeD()});
+
+/* ============ COMPARABLES ============ */
+function comp(){
+ const conv=+$("#conv").value,reg=+$("#reg").value,use=+$("#use").value,dr=+$("#drift").value;
+ $("#o_conv").textContent=conv;$("#o_reg").textContent=reg;$("#o_use").textContent=use;$("#o_drift").textContent=(dr>0?"+":"")+dr.toFixed(1)+"%";
+ const tot=conv+reg+use, span=Math.max(tot,1);
+ const xA=4,xC=4+conv/span*92,xR=4+(conv+reg)/span*92,xV=96;
+ $("#tl").innerHTML=`<div class="axis"></div>
+ <div class="seg" style="left:${xA}%;width:${xC-xA}%;background:color-mix(in srgb,var(--amber) 55%,transparent)"></div>
+ <div class="seg" style="left:${xC}%;width:${xR-xC}%;background:color-mix(in srgb,var(--red) 45%,transparent)"></div>
+ <div class="seg" style="left:${xR}%;width:${xV-xR}%;background:color-mix(in srgb,var(--violet) 45%,transparent)"></div>
+ ${[xA,xC,xR,xV].map((x,i)=>`<div class="dot" style="left:${x}%">${i+1}</div>`).join("")}`;
+ $("#tlkey").innerHTML=[["1 · Agreed","price formed","var(--amber)"],["2 · Completed","date usually quoted","var(--red)"],["3 · Visible","in registry data","var(--violet)"],["4 · Valuation","date of report","var(--brass)"]].map(d=>`<div style="--c:${d[2]}"><b>${d[0]}</b><span>${d[1]}</span></div>`).join("");
+ const mis=Math.pow(1+dr/100,tot)-1;
+ $("#v_age").textContent=tot.toFixed(1);
+ $("#v_drift").textContent=(mis>0?"+":"")+pct(mis);
+ const sev=Math.abs(mis);
+ $("#k_drift").className="kpi "+(sev<.03?"rag-g":sev<.07?"rag-a":"rag-r");
+ $("#k_age").className="kpi "+(tot<6?"rag-g":tot<10?"rag-a":"rag-r");
+ ragBadge("#k_drift");ragBadge("#k_age");
+ $("#v_comp").innerHTML=sev<.03?"<b>Within tolerance.</b> Evidence age is tolerable in this market. Proceed on the valuer's judgement.":sev<.07?`<b>Boundary crossed.</b> Ask for date-agreed or agent-verified recent evidence and an explicit time adjustment.`:`<b>Evidence describes a different market.</b> A ${pct(Math.abs(mis))} ${mis<0?"over":"under"}statement if left unadjusted. Re-base the comparables or size the loan on a stressed value.`;
+}
+["conv","reg","use","drift"].forEach(i=>$("#"+i).oninput=comp);comp();
+
+/* ============ DEVELOPMENT ============ */
+function residual(G,C,fc,pr,fr,pm){const tc=C*(1+fc/100);const fin=tc*.5*(fr/100)*(pm/12);return G*(1-.025-pr/100)-tc-fin}
+function dev(){
+ const G=+$("#gdv").value,C=+$("#bc").value,fc=+$("#fc").value,pr=+$("#pr").value,fr=+$("#fr").value,pm=+$("#pm").value,ll=+$("#ll").value;
+ $("#o_gdv").textContent="£"+G+"m";$("#o_bc").textContent="£"+C+"m";$("#o_fc").textContent=fc+"%";$("#o_pr").textContent=pr+"%";$("#o_fr").textContent=fr+"%";$("#o_pm").textContent=pm;$("#o_ll").textContent="£"+ll+"m";
+ const r=residual(G,C,fc,pr,fr,pm);
+ $("#v_rlv").textContent=(r<0?"−":"")+"£"+Math.abs(r).toFixed(2)+"m";
+ $("#s_rlv").textContent=r>=ll?`covers land loan ${(r/ll).toFixed(2)}×`:"BELOW day-one land loan";
+ $("#k_rlv").className="kpi "+(r>=ll*1.3?"rag-g":r>=ll?"rag-a":"rag-r");
+ const tc=C*(1+fc/100)+tc_fin(C,fc,fr,pm)+Math.max(r,0)+G*.025;
+ const poc=(G*pr/100)/tc;$("#v_poc").textContent=pct(poc);
+ $("#k_poc").className="kpi "+(poc>=.2?"rag-g":poc>=.15?"rag-a":"rag-r");ragBadge("#k_rlv");ragBadge("#k_poc");
+ const gs=[-10,-5,0,5],cs=[0,5,10,15,20];
+ let h=`<div class="h" style="text-align:left">GDV ↓</div>`+cs.map(c=>`<div class="h">+${c}%</div>`).join("");
+ gs.forEach(g=>{h+=`<div class="h" style="text-align:left">${g>0?"+":g<0?"−":"±"}${Math.abs(g)}%</div>`;cs.forEach(c=>{const v=residual(G*(1+g/100),C*(1+c/100),fc,pr,fr,pm);const ratio=v/ll;
+  const col=ratio>=1.3?"var(--green)":ratio>=1?"var(--amber)":"var(--red)";const a=ratio>=1.3?40:ratio>=1?48:Math.min(62,42+(1-ratio)*20);
+  h+=`<div class="${g===0&&c===0?"base":""}" style="background:color-mix(in srgb,${col} ${a}%,var(--ink2));color:var(--text)" title="Residual £${v.toFixed(2)}m">${v<0?"−":""}${Math.abs(v).toFixed(1)}</div>`})});
+ $("#hm").innerHTML=h;
+}
+function tc_fin(C,fc,fr,pm){return C*(1+fc/100)*.5*(fr/100)*(pm/12)}
+["gdv","bc","fc","pr","fr","pm","ll"].forEach(i=>$("#"+i).oninput=dev);dev();
+
+/* ============ STRESS ============ */
+const PRESETS={
+ "Base case":{s_dr:0,s_cap:0,s_dy:0,s_vac:0,s_st:0,s_md:0,s_rl:65,s_rr:7,s_fd:10,s_rc:4,s_hm:9},
+ "Rate shock":{s_dr:250,s_cap:0,s_dy:50,s_vac:0,s_st:0,s_md:0,s_rl:60,s_rr:8.5,s_fd:12.5,s_rc:4,s_hm:9},
+ "Rate shock, capped":{s_dr:250,s_cap:7,s_dy:50,s_vac:0,s_st:0,s_md:0,s_rl:60,s_rr:8.5,s_fd:12.5,s_rc:4,s_hm:9},
+ "Structural obsolescence":{s_dr:100,s_cap:0,s_dy:150,s_vac:30,s_st:6,s_md:-1,s_rl:55,s_rr:8,s_fd:20,s_rc:5,s_hm:15},
+ "Crowded exit":{s_dr:75,s_cap:0,s_dy:75,s_vac:10,s_st:4,s_md:-0.5,s_rl:60,s_rr:7.75,s_fd:25,s_rc:5.5,s_hm:18},
+ "Perfect storm":{s_dr:300,s_cap:0,s_dy:200,s_vac:40,s_st:9,s_md:-1.2,s_rl:50,s_rr:9.5,s_fd:30,s_rc:6,s_hm:24}
+};
+$("#presets").innerHTML=Object.keys(PRESETS).map((k,i)=>`<button class="${i===0?"on":""}" data-k="${k}">${k}</button>`).join("");
+$$("#presets button").forEach(b=>b.onclick=()=>{const p=PRESETS[b.dataset.k];for(const k in p)$("#"+k).value=p[k];$$("#presets button").forEach(x=>x.classList.toggle("on",x===b));stress()});
+function stress(){
+ const g=id=>+$("#"+id).value;
+ const V=g("s_v"),L=g("s_l"),NOI=g("s_noi"),i0=g("s_i")/100,dr=g("s_dr"),cap=g("s_cap"),dy=g("s_dy"),vac=g("s_vac"),st=g("s_st"),md=g("s_md"),rl=g("s_rl"),rr=g("s_rr")/100,fd=g("s_fd"),rc=g("s_rc"),hm=g("s_hm");
+ const T={ltv:g("t_ltv")/100,icr:g("t_icr"),dy:g("t_dy")/100};
+ $("#o_dr").textContent="+"+dr;$("#o_cap").textContent=cap?cap+"%":"none";$("#o_dy").textContent="+"+dy;$("#o_vac").textContent=vac+"%";$("#o_st").textContent=st;$("#o_md").textContent=md.toFixed(1)+"%";$("#o_rl").textContent=rl+"%";$("#o_rr").textContent=(rr*100).toFixed(2)+"%";$("#o_fd").textContent=fd+"%";$("#o_rc").textContent=rc+"%";$("#o_hm").textContent=hm;
+ if(!(V>0&&L>0&&NOI>0&&i0>0))return;
+ const y0=NOI/V, y1=y0+dy/10000, N1=NOI*(1-vac/100);
+ let V1=N1/y1*Math.pow(1+md/100,st);
+ let rate=i0+dr/10000; if(cap>0)rate=Math.min(rate,cap/100);
+ const ltv=L/V1, icr=N1/(L*rate), dyld=N1/L;
+ const refi=Math.min(V1*rl/100, N1/(rr*T.icr));
+ const debt=L*(1+(i0+dr/10000)*hm/12);
+ const gross=V1*(1-fd/100), costs=gross*rc/100, income=N1*hm/12, net=gross-costs+income;
+ const rec=Math.min(1,net/debt), short=Math.max(0,debt-net);
+ const set=(id,v,s,cls)=>{$("#x_"+id).textContent=v;$("#xs_"+id).textContent=s;$("#r_"+id).className="kpi "+cls;ragBadge("#r_"+id)};
+ set("val",fmt(V1),`${pct(V1/V-1)} vs reported`,V1/V>.9?"rag-g":V1/V>.8?"rag-a":"rag-r");
+ set("ltv",pct(ltv),`threshold ${pct(T.ltv,0)}`,ltv<=T.ltv?"rag-g":ltv<=T.ltv+.1?"rag-a":"rag-r");
+ set("icr",icr.toFixed(2)+"×",`floor ${T.icr}× · rate ${(rate*100).toFixed(2)}%${cap>0&&i0+dr/10000>cap/100?" (capped)":""}`,icr>=T.icr?"rag-g":icr>=1.2?"rag-a":"rag-r");
+ set("dy",pct(dyld),`floor ${pct(T.dy)}`,dyld>=T.dy?"rag-g":dyld>=T.dy*.8?"rag-a":"rag-r");
+ set("ref",fmt(refi),refi>=L?`covers loan by ${fmt(refi-L)}`:`refinance gap ${fmt(L-refi)}`,refi>=L?"rag-g":refi>=L*.9?"rag-a":"rag-r");
+ set("rec",pct(rec,0),short>0?`shortfall ${fmt(short)}`:`surplus ${fmt(net-debt)}`,rec>=1?"rag-g":rec>=.9?"rag-a":"rag-r");
+ // waterfall
+ const css=getComputedStyle(document.body),c=k=>css.getPropertyValue(k).trim();
+ const items=[["Reported",V,"--brass"],["Stressed",V1,"--verd"],["Restricted",gross,"--amber"],["− costs",gross-costs,"--amber"],["+ income",net,"--verd"],["Debt due",debt,"--red"]];
+ const mx=Math.max(...items.map(x=>x[1]))*1.1, bw=74, gap=14, H=200;
+ let s=`<line x1="30" y1="${H+10}" x2="550" y2="${H+10}" stroke="${c("--line2")}"/>`;
+ items.forEach((it,k)=>{const x=40+k*(bw+gap),h=it[1]/mx*H,y=H+10-h;s+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="5" fill="${c(it[2])}" opacity="${k===5?.85:.75}"><animate attributeName="height" from="0" to="${h}" dur=".5s"/><animate attributeName="y" from="${H+10}" to="${y}" dur=".5s"/></rect><text x="${x+bw/2}" y="${y-6}" text-anchor="middle" font-size="13.5" font-weight="500" fill="${c("--text")}">${fmt(it[1])}</text><text x="${x+bw/2}" y="${H+32}" text-anchor="middle" font-size="13" font-family="IBM Plex Sans, sans-serif" fill="${c("--muted")}">${it[0]}</text>`});
+ const dyH=debt/mx*H;s+=`<line x1="30" x2="550" y1="${H+10-dyH}" y2="${H+10-dyH}" stroke="${c("--red")}" stroke-dasharray="4 4" opacity=".7"/>`;
+ $("#waterfall").innerHTML=s;
+ const breaches=[ltv>T.ltv,icr<T.icr,dyld<T.dy,refi<L,rec<1].filter(Boolean).length;
+ const v=$("#s_verdict");
+ v.style.borderColor=breaches===0?"var(--green)":breaches<3?"var(--amber)":"var(--red)";
+ v.innerHTML=breaches===0?"Within appetite under this scenario. The loan survives the test — record the assumptions that made it so.":breaches<3?`<b>${breaches} threshold${breaches>1?"s":""} breached.</b> Restructure before credit committee: lower leverage, hedge, cash sweep or extra equity — or price explicitly for the risk.`:`<b>${breaches} thresholds breached.</b> Under this scenario the exit fails and recovery leaves a shortfall. Either the structure changes, or the answer is a disciplined no.`;
+}
+$$("#stress input").forEach(e=>e.addEventListener("input",()=>{if(e.type==="range")$$("#presets button").forEach(x=>x.classList.remove("on"));stress()}));
+stress();
+
+/* ============ FLIPS ============ */
+$("#flips").innerHTML=FLIPS.map((f,i)=>`<div class="flip reveal" role="button" tabindex="0"><div class="in"><div class="f"><div class="n">${String(i+1).padStart(2,"0")}</div><h3 style="margin-top:16px">${f.t}</h3><p>${f.f}</p><div class="hint">Turn for the lending case and remedy ↻</div></div><div class="b">${f.b}</div></div></div>`).join("");
+$$("#flips .flip").forEach(f=>{f.onclick=()=>f.classList.toggle("on");f.onkeydown=k=>{if(k.key==="Enter"||k.key===" "){k.preventDefault();f.classList.toggle("on")}}});
+
+/* ============ MODES ============ */
+const MD={rule:["Rule","Ordered — knowable in advance. Codify existing good practice. Check once, check every time."],boundary:["Boundary","A rule that applies only when a threshold is crossed. Inside it, professional judgement governs."],heuristic:["Heuristic","A short, memorable principle that guides judgement in a familiar pattern where numbers vary."],convene:["Convene","Novel or tail cases. Assemble the roles, decide, document, and add to the case library."]};
+$("#modeCols").innerHTML=Object.keys(MD).map(m=>`<div class="mode"><span class="pill ${m}">${MD[m][0]}</span><p style="margin:12px 0">${MD[m][1]}</p>${ISSUES.map((x,i)=>x.m===m?`<button class="chip" data-i="${i}">${x.t}</button>`:"").join("")}</div>`).join("");
+$$("#modeCols .chip").forEach(c=>c.onclick=()=>{$$("#modeCols .chip").forEach(x=>x.classList.toggle("on",x===c));const it=ISSUES[+c.dataset.i];$("#modeExplain").innerHTML=`<span class="pill ${it.m}">${MD[it.m][0]}</span><h3 style="margin-top:10px">${it.t}</h3><p>${it.w}</p>`});
+
+/* ============ TABLES ============ */
+function tbl(sel,rows,tog){$(sel+" tbody").innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td class="old">${r[1]}</td><td class="new">${r[2]}</td></tr>`).join("");
+ $$(tog+" button").forEach(b=>b.onclick=()=>{$$(tog+" button").forEach(x=>x.classList.toggle("on",x===b));$(sel).classList.remove("mode-old","mode-new");if(b.dataset.m!=="both")$(sel).classList.add("mode-"+b.dataset.m)})}
+tbl("#edgeTable",EDGE,"#edgeToggle");tbl("#cultTable",CULT,"#cultToggle");
+
+/* ============ BOOK ============ */
+const LENS={s:"Sector",r:"Region",ti:"Tenant industry"};let lens="s";
+$("#bookLens").innerHTML=Object.keys(LENS).map(k=>`<button class="btn ${k===lens?"solid":"ghost"}" data-k="${k}">${LENS[k]}</button>`).join("");
+$$("#bookLens button").forEach(b=>b.onclick=()=>{lens=b.dataset.k;$$("#bookLens button").forEach(x=>x.className="btn "+(x===b?"solid":"ghost"));book()});
+function book(){
+ const lim=+$("#cl").value/100;$("#o_cl").textContent=Math.round(lim*100)+"%";
+ const tot=BOOK.reduce((a,b)=>a+b.e,0),g={};BOOK.forEach(b=>g[b[lens]]=(g[b[lens]]||0)+b.e);
+ const arr=Object.entries(g).sort((a,b)=>b[1]-a[1]);
+ $("#lensTitle").textContent="Exposure by "+LENS[lens].toLowerCase()+` — book £${tot.toFixed(1)}m`;
+ $("#bars").innerHTML=arr.map(([k,v])=>{const sh=v/tot;return `<div class="hbar"><div>${k}</div><div class="bar"><i class="${sh>lim?"hot":""}" style="width:${sh/arr[0][1]*tot*100}%"></i></div><div class="p" style="color:${sh>lim?"var(--red)":"var(--text)"}">${pct(sh,0)}</div></div>`}).join("")+`<p class="mini" style="margin-top:16px">${arr.filter(a=>a[1]/tot>lim).length?`<b style="color:var(--red)">Over limit:</b> ${arr.filter(a=>a[1]/tot>lim).map(a=>a[0]).join(", ")}. New lending here needs a portfolio case, not just a deal case.`:"All groups within the concentration limit."}</p>`;
+ const qs=["Q1-27","Q2-27","Q3-27","Q4-27","Q1-28","Q2-28"],qv=qs.map(q=>BOOK.filter(b=>b.q===q).reduce((a,b)=>a+b.e,0)),mx=Math.max(...qv);
+ $("#wall").innerHTML=qv.map(v=>`<div class="c"><span>£${v.toFixed(1)}m</span><i class="${v/tot>lim?"hot":""}" style="height:${v/mx*80}%"></i></div>`).join("");
+ $("#wallL").innerHTML=qs.map(q=>`<span>${q}</span>`).join("");
+ const hot=qs.filter((q,i)=>qv[i]/tot>lim);
+ $("#wallNote").innerHTML=hot.length?`<b style="color:var(--red)">${hot.join(", ")}</b> would put more than ${Math.round(lim*100)}% of the book through the refinance market at once. Re-test these exits now (§VI) and consider staggered extensions or early refinancing conversations.`:"Maturities are staggered within the limit.";
+}
+$("#cl").oninput=book;book();
+
+/* ============ WORKOUT ============ */
+const WQ=[
+{k:"viable",t:"Is the underlying asset still viable at current rates and yields?"},
+{k:"transp",t:"Has the borrower been transparent and cooperative?"},
+{k:"equity",t:"Can the sponsor inject fresh equity or capital?"},
+{k:"cover",t:"Is stressed LTV still within a recoverable margin?"},
+{k:"plan",t:"Is there a credible plan that time alone would fix?"},
+{k:"perish",t:"Is value deteriorating fast (wasting asset, expiring consent, failing tenant)?"}];
+let WA={viable:null,transp:null,equity:null,cover:null,plan:null,perish:null};
+$("#wq").innerHTML=WQ.map(q=>`<div class="qrow"><span class="mini">${q.t}</span><span class="yn" data-k="${q.k}"><button class="y">Yes</button><button class="n">No</button></span></div>`).join("");
+$$("#wq .yn").forEach(y=>{y.querySelector(".y").onclick=()=>{WA[y.dataset.k]=true;work()};y.querySelector(".n").onclick=()=>{WA[y.dataset.k]=false;work()}});
+function work(){
+ $$("#wq .yn").forEach(y=>{const v=WA[y.dataset.k];y.querySelector(".y").classList.toggle("on",v===true);y.querySelector(".n").classList.toggle("on",v===false)});
+ const a=WA,ans=Object.values(a).filter(v=>v!==null).length,o=$("#wout");
+ if(ans<6){o.style.borderColor="var(--line2)";o.innerHTML=`<div class="eyebrow">Indicated route</div><div class="t muted">Answer all six</div><p class="muted">${ans}/6 answered. The answers draw on what a well-read valuation tells you: viability, recoverable margin, and how fast value is wasting.</p>`;return}
+ let r,c,b,need;
+ if(a.viable&&a.transp&&a.cover&&a.plan&&!a.perish){r="Support — structured extension";c="var(--green)";b="Grant time against a milestone plan: extension fee, cash sweep, tighter reporting, possibly a new hedge. The asset remains viable and the borrower is a partner.";need="Updated valuation on current evidence; refreshed exit test; interim asset management plan review."}
+ else if(a.viable&&a.transp&&a.equity){r="Restructure — capital and control";c="var(--amber)";b="Support conditional on new equity or capital, partial paydown, step-in rights and milestone drawdowns. Re-tranche if needed. Time alone is not enough; capital plus control is.";need="Valuation on as-is and post-plan bases; restricted-marketing value as the downside floor; review of the sponsor's capability."}
+ else if(a.viable&&!a.transp){r="Protect — consensual sale or enforcement";c="var(--red)";b="The asset may be sound but the relationship is not. Seek a consensual, lender-controlled sale. If it is not forthcoming, appoint receivers to protect value while it still exists.";need="Restricted-marketing value, competing stock analysis, lease and planning position as a receiver will find them."}
+ else{r="Enforce — protect principal";c="var(--red)";b="The asset is not viable on current terms, or value is wasting faster than time can repair. Move decisively: appointing a receiver early preserves value; delay hands it to the next queue of sellers.";need="Vacant-possession and restricted-marketing values, alternative-use value, marketing strategy and buyer depth, holding costs."}
+ o.style.borderColor=c;o.innerHTML=`<div class="eyebrow">Indicated route</div><div class="t" style="color:${c}">${r}</div><p>${b}</p><h4>What the valuation must now tell you</h4><p class="mini">${need}</p>${a.perish?`<div class="flag mini">Wasting asset: every month of delay transfers value from the lender to the market.</div>`:""}`;
+}
+work();
+
+/* ============ LEVERS / CHANGE ============ */
+$("#levers").innerHTML=LEVERS.map((l,i)=>`<div class="lever ${i===0?"on":""}"><button class="h" aria-expanded="${i===0}"><span><span class="pill">${l.tag}</span><b>${l.t}</b></span><span class="plus">＋</span></button><div class="body"><p class="lede" style="font-size:calc(19px * var(--k))">${l.a}</p><ul class="tidy mini">${l.b.map(x=>`<li>${x}</li>`).join("")}</ul></div></div>`).join("");
+$$("#levers .lever .h").forEach(h=>h.onclick=()=>{const on=h.parentElement.classList.toggle("on");h.setAttribute("aria-expanded",on)});
+$("#changeGrid").innerHTML=CHANGE.map((c,i)=>`<div class="card reveal"><div class="sec-num" style="font-size:calc(18px * var(--k))">${String(i+1).padStart(2,"0")}</div><h3>${c.t}</h3><p class="mini">${c.b}</p></div>`).join("");
+
+/* ============ TAIL ============ */
+function tail(){
+ const pick=[...TRIG].sort(()=>Math.random()-.5).slice(0,3),pp=[...new Set(pick.flatMap(p=>p.p))].sort();
+ const m=Math.floor(Math.random()*18)+8;
+ $("#tailOut").innerHTML=`<div class="eyebrow">Rehearsal · default assumed at month ${m}</div><h4>Triggers</h4><div>${pick.map(p=>`<span class="tail-trig">${p.t}</span>`).join("")}</div>
+ <h4>Pressure points interrogated</h4>${pp.map(n=>`<div class="tlink" role="button" tabindex="0" data-n="${n}"><i>${n}</i><span>${SEVEN[n-1].title} <span class="muted">→ open</span></span></div>`).join("")}
+ <h4>Rehearsal questions</h4><ul class="tidy"><li>What did the valuation say about this at origination — and who read it?</li><li>On day one of receivership, what is the security worth, to whom, and how quickly can it be sold?</li><li>Which signal would have shown this ${Math.max(3,m-6)} months earlier?</li><li>What heuristic or do-case does this add to the library?</li></ul>`;
+ $$("#tailOut [data-n]").forEach(e=>e.onclick=()=>openPP(+e.dataset.n));
+}
+$("#tailBtn").onclick=tail;tail();
+
+/* ============ SIGNALS ============ */
+function sig(){const hz=+$("#hz").value;$("#o_hz").textContent=hz;
+ $("#sigGrid").innerHTML=SIGNALS.map(s=>{const vis=s.at>=hz,lag=s.k==="Lag";return `<div class="card sig ${vis?"":"off"}" style="border-color:${vis?(lag?"var(--red)":"var(--verd)"):"var(--line2)"}"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="pill ${lag?"convene":""}">${s.k}</span><span class="when">≈ ${s.at} months out</span></div><div class="vis" style="margin-top:12px;color:${vis?(lag?"var(--c-conv)":"var(--c-rule)"):"var(--dim)"}">${vis?(lag?"Lag · loss arriving":"Visible now"):"Not yet visible"}</div><h3 style="font-size:calc(19px * var(--k));margin-top:4px">${s.t}</h3><div class="mini muted">${s.p.length?"Tests "+s.p.map(n=>"point "+n+" ("+SEVEN[n-1].title.toLowerCase()+")").join("; "):"The loss has already arrived."}</div></div>`}).join("");}
+$("#hz").oninput=sig;sig();
+
+/* ============ ROADMAP ============ */
+function road(i){$("#road").innerHTML=ROAD.map((r,k)=>`<button class="st ${k===i?"on":""}" data-i="${k}"><div class="k">${r.k}</div><div class="t">${r.t}</div></button>`).join("");
+ $("#roadOut").innerHTML=`<div class="eyebrow">${ROAD[i].k}</div><h3 style="margin-top:8px;font-size:calc(26px * var(--k))">${ROAD[i].t}</h3><ul class="tidy">${ROAD[i].b.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+ $$("#road .st").forEach(e=>e.onclick=()=>road(+e.dataset.i));}
+road(0);
+
+/* ============ ASSESS ============ */
+const SHORT=["Reading reports","Comparables","Development","Planning & use","Leases & occupation","Exit & sale","Borrower plans"];
+const RG={cx:390,cy:296,R:190,N:7};
+let openArea=null,hoverArea=null,dragArea=null;
+const rpt=(k,r)=>[RG.cx+r*Math.sin(2*Math.PI*k/RG.N),RG.cy-r*Math.cos(2*Math.PI*k/RG.N)];
+function setArea(n,count){const p=SEVEN[n-1];p.data.forEach((_,i)=>{store[n+"_"+i]=i<count});save()}
+function renderAssess(){
+ const css=getComputedStyle(document.body),c=k=>css.getPropertyValue(k).trim();
+ const vals=SEVEN.map(p=>doneFrac(p.n)),{cx,cy,R,N}=RG;
+ const tgt=+$("#tgt").value/100,showT=$("#tgtOn").checked;
+ $("#o_tgt").textContent=Math.round(tgt*100)+"%";
+ let s=`<polygon points="${[...Array(N)].map((_,k)=>rpt(k,R).join(",")).join(" ")}" fill="${c("--ink2")}" stroke="none"/>`;
+ [.25,.5,.75,1].forEach(f=>{s+=`<polygon points="${[...Array(N)].map((_,k)=>rpt(k,R*f).join(",")).join(" ")}" fill="none" stroke="${c("--line2")}" stroke-width="${f===1?2:1.2}"/>`;
+   const [tx,ty]=rpt(0,R*f);s+=`<text x="${tx+8}" y="${ty+4}" font-size="16" font-family="IBM Plex Sans, sans-serif" font-weight="600" fill="${c("--muted")}">${f*100}%</text>`});
+ // sector hit areas + highlight
+ for(let k=0;k<N;k++){const a0=(k-.5)*2*Math.PI/N,a1=(k+.5)*2*Math.PI/N,p0=[cx+R*1.12*Math.sin(a0),cy-R*1.12*Math.cos(a0)],p1=[cx+R*1.12*Math.sin(a1),cy-R*1.12*Math.cos(a1)];
+  const on=hoverArea===k+1||openArea===k+1||dragArea===k+1;
+  s+=`<path class="rsec" data-n="${k+1}" d="M${cx},${cy} L${p0} A${R*1.12},${R*1.12} 0 0 1 ${p1} Z" fill="${on?c("--brass"):"transparent"}" fill-opacity="${on?.12:0}" style="cursor:pointer"/>`}
+ for(let k=0;k<N;k++){const [x,y]=rpt(k,R);s+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="${c("--line2")}" stroke-width="1.2" pointer-events="none"/>`}
+ if(showT)s+=`<polygon points="${[...Array(N)].map((_,k)=>rpt(k,R*tgt).join(",")).join(" ")}" fill="none" stroke="${c("--brass")}" stroke-width="2.5" stroke-dasharray="7 6" pointer-events="none"/>`;
+ s+=`<polygon points="${vals.map((v,k)=>rpt(k,R*Math.max(v,.03)).join(",")).join(" ")}" fill="${c("--verd")}" fill-opacity=".38" stroke="${c("--verd2")}" stroke-width="3" stroke-linejoin="round" pointer-events="none"/>`;
+ vals.forEach((v,k)=>{const [x,y]=rpt(k,R*Math.max(v,.03)),below=showT&&v<tgt;s+=`<circle cx="${x}" cy="${y}" r="${dragArea===k+1?11:8}" fill="${below?c("--red"):c("--brass")}" stroke="${c("--ink")}" stroke-width="2.5" pointer-events="none"/>`});
+ for(let k=0;k<N;k++){const [lx,ly]=rpt(k,R+40),anc=Math.abs(lx-cx)<10?"middle":lx>cx?"start":"end",below=showT&&vals[k]<tgt;
+  s+=`<g class="rlab" data-n="${k+1}" style="cursor:pointer"><text x="${lx}" y="${ly-11}" text-anchor="${anc}" font-family="IBM Plex Sans, sans-serif" font-size="21" font-weight="600" fill="${c("--text")}"><tspan fill="${c("--brass2")}" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="24">${k+1}</tspan> ${SHORT[k]}</text><text x="${lx}" y="${ly+16}" text-anchor="${anc}" font-family="IBM Plex Mono, monospace" font-size="19" font-weight="500" fill="${below?c("--red"):c("--verd2")}">${Math.round(vals[k]*100)}%${below?" · below":""}</text></g>`}
+ const svg=$("#radar");svg.innerHTML=s;svg.setAttribute("aria-label","Coverage radar: "+SEVEN.map((p,k)=>SHORT[k]+" "+Math.round(vals[k]*100)+"%").join(", "));
+ const tot=SEVEN.reduce((a,p)=>a+p.data.length,0),done=SEVEN.reduce((a,p)=>a+Math.round(doneFrac(p.n)*p.data.length),0),f=done/tot;
+ $("#a_v").textContent=Math.round(f*100)+"%";$("#a_s").textContent=`${done} of ${tot} data-points verified`;
+ $("#a_tot").className="kpi "+(f>=tgt?"rag-g":f>=tgt*.6?"rag-a":"rag-r");ragBadge("#a_tot");
+ let wi=0;vals.forEach((v,k)=>{if(v<vals[wi])wi=k});$("#a_w").textContent=`${wi+1} · ${SHORT[wi]}`;
+ const nb=vals.filter(v=>v<tgt).length;$("#a_ws").textContent=showT?(nb?`${nb} of 7 areas below the ${Math.round(tgt*100)}% target`:"All areas meet the target"):"start here";
+ // list
+ $("#assessList").innerHTML=SEVEN.map((p,k)=>`<div class="aitem ${openArea===p.n?"open":""}">
+  <button class="arow" data-n="${p.n}" aria-expanded="${openArea===p.n}"><span class="sec-num" style="font-size:calc(20px * var(--k))">${p.n}</span><span>${p.title}</span><div class="bar"><i style="width:${vals[k]*100}%;${showT&&vals[k]<tgt?"background:linear-gradient(90deg,var(--amber),var(--red))":""}"></i></div><span class="p">${Math.round(vals[k]*100)}%</span><span class="chev">▾</span></button>
+  <div class="abody">${p.data.map((d,i)=>`<label class="chk"><input type="checkbox" data-k="${p.n}_${i}" ${store[p.n+"_"+i]?"checked":""}><span>${d}</span></label>`).join("")}
+   <div class="abtns"><button class="btn ghost sm" data-all="${p.n}">Tick all</button><button class="btn ghost sm" data-none="${p.n}">Clear</button><button class="btn sm" data-open="${p.n}">Open full working file →</button></div></div></div>`).join("");
+ $$("#assessList .arow").forEach(e=>e.onclick=()=>{const n=+e.dataset.n;openArea=openArea===n?null:n;renderAssess()});
+ $$("#assessList input[type=checkbox]").forEach(cb=>cb.onchange=()=>{store[cb.dataset.k]=cb.checked;save();renderAssess();renderSeven()});
+ $$("#assessList [data-all]").forEach(b=>b.onclick=()=>{const n=+b.dataset.all;setArea(n,99);renderAssess();renderSeven()});
+ $$("#assessList [data-none]").forEach(b=>b.onclick=()=>{const n=+b.dataset.none;setArea(n,0);renderAssess();renderSeven()});
+ $$("#assessList [data-open]").forEach(b=>b.onclick=()=>openPP(+b.dataset.open,"data"));
+}
+function tipFor(n){const k=n-1,v=doneFrac(n),p=SEVEN[k];$("#radarTip").innerHTML=`<b>${n} · ${p.title}</b><span>${Math.round(v*p.data.length)} of ${p.data.length} data-points verified (${Math.round(v*100)}%). Drag along the spoke to change, or click to open the checklist.</span>`}
+(function(){const svg=$("#radar");
+ const loc=e=>{const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const q=pt.matrixTransform(svg.getScreenCTM().inverse());return [q.x-RG.cx,q.y-RG.cy]};
+ const areaAt=(dx,dy)=>{let a=Math.atan2(dx,-dy);if(a<0)a+=2*Math.PI;return Math.round(a/(2*Math.PI/RG.N))%RG.N+1};
+ const fracAt=(dx,dy,n)=>{const a=2*Math.PI*(n-1)/RG.N,proj=dx*Math.sin(a)-dy*Math.cos(a);return Math.max(0,Math.min(1,proj/RG.R))};
+ let moved=false,startN=null;
+ svg.addEventListener("pointerdown",e=>{const [dx,dy]=loc(e),d=Math.hypot(dx,dy);if(d>RG.R*1.15)return;startN=areaAt(dx,dy);dragArea=startN;moved=false;svg.setPointerCapture(e.pointerId);
+  const n=startN,f=fracAt(dx,dy,n);setArea(n,Math.round(f*SEVEN[n-1].data.length));tipFor(n);renderAssess();renderSeven();e.preventDefault()});
+ svg.addEventListener("pointermove",e=>{const [dx,dy]=loc(e);if(dragArea){moved=true;const n=dragArea,f=fracAt(dx,dy,n);const cnt=Math.round(f*SEVEN[n-1].data.length);if(cnt!==Math.round(doneFrac(n)*SEVEN[n-1].data.length)){setArea(n,cnt);renderAssess();renderSeven()}tipFor(n);return}
+  const d=Math.hypot(dx,dy);const n=d<RG.R*1.15?areaAt(dx,dy):null;if(n!==hoverArea){hoverArea=n;renderAssess();if(n)tipFor(n)}});
+ svg.addEventListener("pointerup",()=>{dragArea=null;renderAssess()});
+ svg.addEventListener("pointerleave",()=>{if(!dragArea&&hoverArea){hoverArea=null;renderAssess()}});
+ svg.addEventListener("click",e=>{const g=e.target.closest&&e.target.closest(".rlab");if(g){openArea=+g.dataset.n;renderAssess();$("#assessList").scrollIntoView({behavior:"smooth",block:"nearest"})}});
+ svg.setAttribute("tabindex","0");
+ svg.addEventListener("keydown",e=>{const n=hoverArea||openArea||1;const p=SEVEN[n-1],cur=Math.round(doneFrac(n)*p.data.length);
+  if(e.key==="ArrowUp"||e.key==="ArrowRight"){setArea(n,Math.min(p.data.length,cur+1))}else if(e.key==="ArrowDown"||e.key==="ArrowLeft"){setArea(n,Math.max(0,cur-1))}else if(/^[1-7]$/.test(e.key)){hoverArea=+e.key}else return;
+  e.preventDefault();tipFor(hoverArea||n);renderAssess();renderSeven()});
+})();
+$("#tgt").oninput=renderAssess;$("#tgtOn").onchange=renderAssess;
+renderAssess();renderSeven();
+$("#resetBtn").onclick=()=>{store={};save();renderAssess();renderSeven();toast("All answers cleared")};
+function checklistText(){return "LENDING WELL — VALUATION REVIEW FIELD CHECKLIST\nMark Downham FRICS\n\n"+SEVEN.map(p=>`${p.n}. ${p.title.toUpperCase()}\n`+p.data.map((d,i)=>`  [${store[p.n+"_"+i]?"x":" "}] ${d}`).join("\n")+"\n  Red flags:\n"+p.flags.map(f=>"   - "+f).join("\n")+"\n  Do-cases:\n"+p.docase.map((d,i)=>`   ${i+1}. ${d}`).join("\n")+"\n   *. Anything else -> convene, decide, record.").join("\n\n")}
+$("#dlBtn").onclick=()=>{try{const b=new Blob([checklistText()],{type:"text/plain;charset=utf-8"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="lending-well-field-checklist.txt";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500);toast("Checklist downloaded")}catch(e){toast("Download not available here — use Copy")}};
+$("#printBtn").onclick=()=>{try{window.print()}catch(e){toast("Printing not available here")}};
+$("#allBtn").onclick=()=>{SEVEN.forEach(p=>setArea(p.n,99));renderAssess();renderSeven();toast("Every data-point ticked")};
+$("#copyBtn").onclick=async()=>{const txt="LENDING WELL — VALUATION REVIEW FIELD CHECKLIST\n\n"+SEVEN.map(p=>`${p.n}. ${p.title.toUpperCase()}\n`+p.data.map((d,i)=>`  [${store[p.n+"_"+i]?"x":" "}] ${d}`).join("\n")+"\n  Red flags:\n"+p.flags.map(f=>"   - "+f).join("\n")+"\n  Do-cases:\n"+p.docase.map((d,i)=>`   ${i+1}. ${d}`).join("\n")+"\n   *. Anything else → convene, decide, record.").join("\n\n");
+ try{await navigator.clipboard.writeText(txt);toast("Checklist copied")}catch(e){toast("Copy not permitted here")}};
+
+/* ============ THEME / NAV / REVEAL ============ */
+try{if(localStorage.getItem("lw_theme")==="light")document.body.classList.add("light")}catch(e){}
+const themeLabel=()=>{$("#themeBtn").textContent=document.body.classList.contains("light")?"Dark mode":"Light mode"};themeLabel();if(document.body.classList.contains("light")){stress();renderAssess()}
+$("#themeBtn").onclick=()=>{document.body.classList.toggle("light");themeLabel();try{localStorage.setItem("lw_theme",document.body.classList.contains("light")?"light":"dark")}catch(e){};stress();renderAssess()};
+const secs=$$("main section[id]"),links=$$("#topnav a");
+addEventListener("scroll",()=>{const st=scrollY,h=document.documentElement.scrollHeight-innerHeight;$("#progress").style.width=(st/h*100)+"%";
+ let cur="";secs.forEach(s=>{if(s.offsetTop-120<=st)cur=s.id});links.forEach(a=>{const on=a.getAttribute("href")==="#"+cur;if(on&&!a.classList.contains("on")){const nv=$("#topnav");nv.scrollTo({left:a.offsetLeft-nv.clientWidth/2+a.offsetWidth/2,behavior:"smooth"})}a.classList.toggle("on",on)})},{passive:true});
+function observe(){if(!("IntersectionObserver" in window)){$$(".reveal").forEach(e=>e.classList.add("in"));return}
+ io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+ $$(".reveal:not(.in)").forEach(e=>io.observe(e))}
+observe();
+function goTo(id){const t=document.getElementById(id);if(!t)return;const y=t.getBoundingClientRect().top+scrollY-($(".topbar").offsetHeight+8);window.scrollTo({top:Math.max(0,y),behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});t.setAttribute("tabindex","-1");setTimeout(()=>t.focus({preventScroll:true}),600)}
+document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute("href").slice(1);if(!id)return;e.preventDefault();goTo(id)});
+function setK(k){document.documentElement.style.setProperty("--k",k);document.body.style.setProperty("--k",k);$$(".tsize button").forEach(b=>b.classList.toggle("on",b.dataset.k==k));try{localStorage.setItem("lw_k",k)}catch(e){}}
+$$(".tsize button").forEach(b=>b.onclick=()=>setK(b.dataset.k));
+try{const k=localStorage.getItem("lw_k");if(k)setK(k)}catch(e){}
+document.addEventListener("keydown",e=>{const t=e.target;if((e.key==="Enter"||e.key===" ")&&t.matches&&t.matches(".tlink,.arow")){e.preventDefault();t.click()}});
+</script>
+</body>
+</html>
